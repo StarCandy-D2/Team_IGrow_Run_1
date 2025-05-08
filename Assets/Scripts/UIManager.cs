@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 {
 
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI BestScore;
     public GameObject restartPanel;
     public Button restartButton;
     public Button backToMainButton;
@@ -28,6 +29,14 @@ public class UIManager : MonoBehaviour
         if (restartButton == null)
         {
             Debug.LogError("restart button is null");
+        }
+        if (BestScore == null)
+        {
+            Debug.LogError("BestScore == null");
+        }
+        if (backToMainButton == null)
+        {
+            Debug.LogError("backToMainButton == null");
         }
         restartPanel.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
