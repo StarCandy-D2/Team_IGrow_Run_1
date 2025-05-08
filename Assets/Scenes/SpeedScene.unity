@@ -202,8 +202,8 @@ Transform:
   m_GameObject: {fileID: 418705192}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.5, z: 0}
-  m_LocalScale: {x: 20, y: 1.5, z: 1}
+  m_LocalPosition: {x: 48.2832, y: -4.5, z: 0}
+  m_LocalScale: {x: 116.5695, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -421,14 +421,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1819416905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5f82665b50a0de4fb8230476d2c029b, type: 3}
+  m_Script: {fileID: 11500000, guid: 521c5cd28b0e7e646b51d3dee98bba2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 6
-  forwardSpeed: 5
-  isDead: 0
-  isGrounded: 0
-  godMode: 0
+  jumpPower: 5
+  BaseRunSpeed: 3
+  jumpCount: 0
+  stage: 0
+  stageInterval: 3
+  speedIncreasePerStage: 2
 --- !u!1 &2141041294
 GameObject:
   m_ObjectHideFlags: 0

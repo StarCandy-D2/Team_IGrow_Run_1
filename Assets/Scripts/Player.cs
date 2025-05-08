@@ -5,25 +5,40 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rigid;
-    [SerializeField] float runSpeed;
     [SerializeField] float jumpPower;
+    [SerializeField] float BaseRunSpeed;
+    private float currentRunSpeed;
+    
     [SerializeField] int jumpCount = 0;
+
+    public int stage = 0;
+    [SerializeField] float stageInterval = 10f;     //stage time
+    [SerializeField] float speedIncreasePerStage = 0.5f; // increase speed per stage ex)3stage =  +1.5f
+    private float elapsedTime = 0f;
 
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        currentRunSpeed = BaseRunSpeed;
     }
 
     private void Update()
     {
         RunAndJump();
         Sliding();
+        elapsedTime += Time.deltaTime;
+        if (elapsedTime >= stageInterval)
+        {
+            elapsedTime -= stageInterval;
+            stage++;
+            currentRunSpeed = BaseRunSpeed + stage * speedIncreasePerStage;  // ex 3stage  -> 3(base) + 3*0.5 = 4.5f
+        }
     }
 
     void RunAndJump()
     {
         Vector2 vec = rigid.velocity;
-        vec.x = runSpeed;
+        vec.x = currentRunSpeed;
 
         if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Jump"))
         {
