@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovingGround : MonoBehaviour
 {
+    public Player player;
     float movespeed = 5f;
 
     // Start is called before the first frame update
@@ -15,8 +16,13 @@ public class MovingGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Vector3 pos = transform.position;
         pos.x -= movespeed * Time.deltaTime;
         transform.position = pos;
+        if (player.isDead == true)
+        {
+            movespeed = 0;
+        }
     }
 }

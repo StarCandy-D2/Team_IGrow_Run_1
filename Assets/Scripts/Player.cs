@@ -73,17 +73,23 @@ public class Player : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {       
+        if (isDead)
+        return;
         if(collision.transform.tag == "Ground")
         {
             jumpCount = 0;
+            return;
         }
 
-        if (isDead)
-            return;
 
-        isDead = true;
+        if (collision.transform.tag == "Obstacles")
+        {   
 
-        GameManager.Instance.GameOver();
+            isDead = true;
+
+            GameManager.Instance.GameOver();
+        }
+
     }
 }
