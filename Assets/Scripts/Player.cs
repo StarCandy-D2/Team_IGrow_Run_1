@@ -4,62 +4,54 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Rigidbody2D _rigidbody;
-    [Header("점프/이동")]
-    public float jumpForce = 5f;
-    public float forwardSpeed = 4f;
-    public bool isDead = false;
-    public bool isGrounded = false;
-    bool isJump = false;
-    public bool godMode = false;
-    private int jumpCount = 0;
-    private const int maxJumpCount = 2;
+    Rigidbody2D rigid;
+    [SerializeField] float runSpeed;
+    [SerializeField] float jumpPower;
+    [SerializeField] int jumpCount = 0;
 
-    private void Awake()
+    private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        if (_rigidbody != null)
-            Debug.LogError("rigidbody error");
+        rigid = GetComponent<Rigidbody2D>();
     }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)&&jumpCount<maxJumpCount)
-        {
-         isJump = true;
-         jumpCount++;
-        }
-        
+        RunAndJump();
+        Sliding();
     }
-    public void FixedUpdate()
+
+    void RunAndJump()
     {
-        if (isDead) return;
+        Vector2 vec = rigid.velocity;
+        vec.x = runSpeed;
 
-        Vector2 velocity = _rigidbody.velocity;
-        velocity.x = forwardSpeed;
-
-        if (isJump)
+        if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Jump"))
         {
-            velocity.y = 0;
-            velocity.y += jumpForce;
-            isJump = false;
+            if(jumpCount < 2)
+            {
+                jumpCount++;
+                vec.y = jumpPower;
+            }
         }
-        _rigidbody.velocity = velocity;
+
+        rigid.velocity = vec;
     }
+
+    void Sliding()
+    {
+        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.E))
+        {
+            Vector2 vec = rigid.velocity;
+            vec.y = -jumpPower;
+            rigid.velocity = vec;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Ground"))
+        if(collision.transform.tag == "Ground")
         {
-            isGrounded = true;
-            jumpCount = 0;  // 지면에 닿으면 점프 횟수 초기화
-            Debug.Log("땅에 닿음 점프횟수 초기화");
-        }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Ground"))
-        {
-            isGrounded = false;
-            Debug.Log("점프함");
+            jumpCount = 0;
         }
     }
 }
