@@ -11,12 +11,42 @@ public class GameManager : MonoBehaviour
     {
         get { return gameManager; }
     }
+
+    private int currentScore = 0;
+    UIManager uiManager;
+
+    public UIManager UIManager
+    {
+        get { return uiManager; }
+    }
+    private void Awake()
+    {
+        gameManager = this;
+        uiManager = FindObjectOfType<UIManager>();
+    }
+
+    private void Start()
+    {
+        uiManager.UpdateScore(0);
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Game Over");
+        ScoreManager.SaveScore(currentScore);
+        uiManager.SetRestart();
+    }
+
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    public void BackToMain()
+
+    public void AddScore(int score)
     {
-        SceneManager.LoadScene("StartUIScene");
+        currentScore += score;
+        uiManager.UpdateScore(currentScore);
+        Debug.Log("Score: " + currentScore);
     }
+
 }
