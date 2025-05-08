@@ -5,8 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rigid;
+    private BoxCollider2D boxCollider;                  //추후 콜라이더에 따라 수정
+    private Vector2 offsetVec = new Vector2(0, -0.25f); //추후 콜라이더에 따라 수정
+    private Vector2 sizeVec = new Vector2(1, 0.5f);     //추후 콜라이더에 따라 수정
     [SerializeField] float jumpPower;
     [SerializeField] float BaseRunSpeed;
+    
     private float currentRunSpeed;
     
     [SerializeField] int jumpCount = 0;
@@ -19,6 +23,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();    //추후 콜라이더에 따라 수정
         currentRunSpeed = BaseRunSpeed;
     }
 
@@ -59,6 +64,8 @@ public class Player : MonoBehaviour
             Vector2 vec = rigid.velocity;
             vec.y = -jumpPower;
             rigid.velocity = vec;
+            boxCollider.offset = offsetVec;     //추후 콜라이더에 따라 수정
+            boxCollider.size = sizeVec;         //추후 콜라이더에 따라 수정
         }
     }
 
