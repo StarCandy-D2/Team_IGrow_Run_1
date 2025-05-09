@@ -31,6 +31,10 @@ public class Player : MonoBehaviour
     private float elapsedTime = 0f;
 
     private int currentHp;
+    public int jellylevel = 1;
+    public int maxHPlevel = 1;
+    public int otherlevel = 1;
+    public int lifelevel = 1;
     public int CurrentHp
     {
         get { return currentHp; }

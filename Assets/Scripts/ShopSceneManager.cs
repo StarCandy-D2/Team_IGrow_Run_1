@@ -24,6 +24,7 @@ public class ShopSceneManager : MonoBehaviour
     public TextMeshProUGUI maxhptooltiptxt;
     public TextMeshProUGUI lifeitemtooltiptxt;
     public TextMeshProUGUI otheritemtooltiptxt;
+    public TextMeshProUGUI recentCoin;
 
     public int jellyprice = 1;
     public int maxHPprice = 1;
@@ -32,6 +33,11 @@ public class ShopSceneManager : MonoBehaviour
 
     public int calcurateconst1 = 5;
     public int calcurateconst2 = 5;
+    public Player player;
+    int GetUpgradeCost(int level)
+    {
+        return 100 * level * level + 900;
+    }
     public void GameStart()
     {
         SceneManager.LoadScene("MainScene");
@@ -75,5 +81,85 @@ public class ShopSceneManager : MonoBehaviour
     public void Hideother()
     {
         otheritemtooltip.SetActive(false);
+    }
+    public void UpdateCoinUI()
+    {
+        recentCoin.text = "coin : " + player.coins.ToString();
+        if (player.coins == 0 )
+        {
+            recentCoin.text = "Coin : 0";
+        }
+    }
+    public void UpgradeJelly()
+    {
+        int cost = GetUpgradeCost(player.jellylevel);
+        if (player.coins >= cost)
+        {
+            player.coins -= cost;
+            player.jellylevel++;
+            Debug.Log("젤리 업그레이드!");
+            UpdateCoinUI(); // ← 코인 UI 즉시 갱신
+        }
+        else
+        {
+            Debug.Log("코인이 부족합니다.");
+        }
+    }
+    public void UpgradeMaxHP()
+    {
+        int cost = GetUpgradeCost(player.maxHPlevel);
+        if (player.coins >= cost)
+        {
+            player.coins -= cost;
+            player.maxHPlevel++;
+            Debug.Log("최대 HP 업그레이드!");
+            UpdateCoinUI(); // ← 코인 UI 즉시 갱신
+        }
+        else
+        {
+            Debug.Log("코인이 부족합니다.");
+        }
+    }
+    public void Upgradelife()
+    {
+        int cost = GetUpgradeCost(player.lifelevel);
+        if (player.coins >= cost)
+        {
+            player.coins -= cost;
+            player.lifelevel++;
+            Debug.Log("회북물약 업그레이드!");
+            UpdateCoinUI(); // ← 코인 UI 즉시 갱신
+        }
+        else
+        {
+            Debug.Log("코인이 부족합니다.");
+        }
+    }
+    public void UpgradeOther()
+    {
+        int cost = GetUpgradeCost(player.otherlevel);
+        if (player.coins >= cost)
+        {
+            player.coins -= cost;
+            player.otherlevel++;
+            Debug.Log("기타 아이템 업그레이드!");
+            UpdateCoinUI(); // ← 코인 UI 즉시 갱신
+        }
+        else
+        {
+            Debug.Log("코인이 부족합니다.");
+        }
+    }
+    public void UpdateUpgradePriceUI()
+    {
+        jellytext.text = $"Price: {GetUpgradeCost(player.jellylevel)}";
+        maxHPtext.text = $"Price: {GetUpgradeCost(player.maxHPlevel)}";
+        lifetext.text = $"Price: {GetUpgradeCost(player.lifelevel)}";
+        othertext.text = $"Price: {GetUpgradeCost(player.otherlevel)}";
+    }
+    void Start()
+    {
+        UpdateUpgradePriceUI();
+        UpdateCoinUI();
     }
 }
