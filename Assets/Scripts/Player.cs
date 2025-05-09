@@ -16,9 +16,10 @@ public class Player : MonoBehaviour
     [SerializeField] float speedIncreasePerStage = 0.5f; // increase speed per stage ex)3stage =  +1.5f
     [SerializeField] int jumpCount = 0;
 
-
-    private Vector2 offsetVec = new Vector2(0, -0.25f); //추후 콜라이더에 따라 수정
-    private Vector2 sizeVec = new Vector2(1, 0.5f);     //추후 콜라이더에 따라 수정
+    private Vector2 originalSize;
+    private Vector2 originalOffset;
+    private Vector2 slideSize = new Vector2(1f, 0.5f);
+    private Vector2 slideOffset = new Vector2(0f, 0.25f);
 
     private float verticalSpeed = 0f;
     private float currentRunSpeed;
@@ -41,7 +42,9 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-        boxCollider = GetComponent<BoxCollider2D>();    //추후 콜라이더에 따라 수정
+        boxCollider = GetComponent<BoxCollider2D>();
+        originalSize = boxCollider.size;
+        originalOffset = boxCollider.offset;
         currentRunSpeed = BaseRunSpeed;
         currentHp = maxHp;
     }
@@ -52,10 +55,17 @@ public class Player : MonoBehaviour
         verticalSpeed += gravity * Time.deltaTime;
 
         // 발 밑 기준으로 Ray 발사
-        Vector2 rayOrigin = transform.position + new Vector3(0, -0.5f, 0); // 콜라이더 하단 기준
-        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, 0.5f, LayerMask.GetMask("Ground"));
+        Vector2 rayOrigin = transform.position + new Vector3(0, -0.05f, 0);
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, 0.2f, LayerMask.GetMask("Ground"));
         Debug.DrawRay(rayOrigin, Vector2.down * 0.2f, Color.red);
 
+        bool isGrounded = (hit.collider != null);
+        bool isSlideKeyHeld = Input.GetMouseButton(1) || Input.GetKey(KeyCode.E);
+
+        if (!isGrounded && isSlideKeyHeld && verticalSpeed < 0)
+        {
+            verticalSpeed = -10f;
+        }
         // 점프 입력
         if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("Jump")) && jumpCount < 2)
         {
@@ -79,15 +89,13 @@ public class Player : MonoBehaviour
             currentRunSpeed = BaseRunSpeed + stage * speedIncreasePerStage;
         }
 
-        // 땅 감지 후 보정
         if (hit.collider != null && verticalSpeed <= 0)
         {
             jumpCount = 0;
             verticalSpeed = 0f;
 
-            float colliderHeight = boxCollider.size.y;
             Vector3 pos = transform.position;
-            pos.y = hit.point.y + (colliderHeight / 1f);
+            pos.y = hit.point.y + 0.05f;
             transform.position = pos;
         }
     }
@@ -95,13 +103,15 @@ public class Player : MonoBehaviour
 
     void Sliding()
     {
-        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.E))
         {
-            Vector2 vec = rigid.velocity;
-            vec.y = -jumpPower;
-            rigid.velocity = vec;
-            boxCollider.offset = offsetVec;     //추후 콜라이더에 따라 수정
-            boxCollider.size = sizeVec;         //추후 콜라이더에 따라 수정
+            boxCollider.size = slideSize;
+            boxCollider.offset = slideOffset;
+        }
+        else
+        {
+            boxCollider.size = originalSize;
+            boxCollider.offset = originalOffset;
         }
     }
 
@@ -133,6 +143,4 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-
 }
