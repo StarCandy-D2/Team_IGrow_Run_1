@@ -31,9 +31,9 @@ public class Jelly : MonoBehaviour
             Debug.Log(++score); // UIÀÇ ½ºÄÚ¾î¶û ¿¬µ¿ÇÏ¿© »ç¿ë
             Debug.Log("Á©¸® ¸Ô±â");
             GameManager.Instance.AddScore(scoreValue);
-            animator.SetBool("IsEat", true);
-
+            animator.SetBool("IsEat", true);         
             Destroy(this.gameObject, 0.2f);
+           
         }
 
     }
