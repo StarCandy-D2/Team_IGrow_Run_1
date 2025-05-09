@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
-using static MapDataJson;
 using System;
 
 public class MapDataJson : MonoBehaviour
@@ -32,14 +31,18 @@ public class MapDataJson : MonoBehaviour
     {
         string jsonString = Resources.Load("MapData").ToString();
         prefebsStruct = JsonConvert.DeserializeObject<PrefebsStruct[]>(jsonString);
-        mapCode = UnityEngine.Random.Range(0, prefebsStruct.Length);
+
+        GetCode();
+    }
+    public void GetCode()
+    {
+        GetRandomCode();
 
         GetGroundCode();
         GetJumpObstacleCode();
         GetDoubleJumpObstaclCode();
-        GetSlideObstacleCode();        
+        GetSlideObstacleCode();
     }
-
     void GetGroundCode()
     {
         if (prefebsStruct[mapCode].Ground != null)
@@ -103,5 +106,11 @@ public class MapDataJson : MonoBehaviour
     public Vector2[] ReturnObstacle3Code()
     {
         return slideObstacleVec;
+    }
+
+    int GetRandomCode()
+    {
+        int code = UnityEngine.Random.Range(0, prefebsStruct.Length);
+        return code;
     }
 }

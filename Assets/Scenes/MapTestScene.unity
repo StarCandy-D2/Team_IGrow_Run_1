@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 16838434}
   - component: {fileID: 16838433}
   - component: {fileID: 16838432}
+  - component: {fileID: 16838435}
   m_Layer: 0
   m_Name: Mask
   m_TagString: Untagged
@@ -281,6 +282,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &16838435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16838430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ca05d6f5461fc418d07ee141ac9bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pref: {fileID: 1161690916}
+  mapDataScript: {fileID: 1161690915}
 --- !u!1 &145478260
 GameObject:
   m_ObjectHideFlags: 0
