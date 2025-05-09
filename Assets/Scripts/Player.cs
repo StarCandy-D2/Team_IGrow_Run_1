@@ -26,6 +26,14 @@ public class Player : MonoBehaviour
     private float elapsedTime = 0f;
 
     private int currentHp;
+    public int CurrentHp
+    {
+        get { return currentHp; }
+        set 
+        {
+            currentHp = Mathf.Clamp(value, 0, maxHp);
+        }
+    }
     public bool isDead = false; // 죽음 여부 확인
     public bool isGod = false;
     bool isFlap = false; // 점프 여부 확인

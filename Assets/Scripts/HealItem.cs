@@ -17,9 +17,10 @@ public class HealItem : MonoBehaviour
         if (!isEat)
         {
             isEat = true;
+            Debug.Log($"현재 플레이어의 체력은 {player.CurrentHp}");
             Debug.Log("회복되었습니다!");
-            player.currentHp += 2;
-
+            player.CurrentHp += 2;
+            Debug.Log($"현재 플레이어의 체력은 {player.CurrentHp}");
             Destroy(this.gameObject);
 
         }
