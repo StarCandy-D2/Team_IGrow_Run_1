@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     {
         BestScore();
         uiManager.UpdateScore(0);
+        uiManager.UpdateBestScore(PlayerPrefs.GetInt("Score_0", 0));
     }
 
     public void GameOver()
