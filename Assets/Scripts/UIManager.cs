@@ -51,12 +51,12 @@ public class UIManager : MonoBehaviour
 
     public void UpdateScore(int score)
     {
-        scoreText.text = "Score : " + score.ToString();
+        scoreText.text = "Score  " + score.ToString();
     }
     public void UpdateBestScore(int bestscore)
     {
         if (BestScore != null)
-        BestScore.text = "Best Score : " + bestscore.ToString();
+        BestScore.text = "Best Score  " + bestscore.ToString();
     }
     public void ReturnToMainScene()
     {
