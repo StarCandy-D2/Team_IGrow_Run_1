@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private int bestscore = 0;
     UIManager uiManager;
     ScoreManager scoreManager;
+    ShopSceneManager shopSceneManager;
 
     public UIManager UIManager
     {
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
         BestScore();
         uiManager.UpdateScore(0);
         uiManager.UpdateBestScore(PlayerPrefs.GetInt("Score_0", 0));
+        uiManager.UpdateBigBestScore(PlayerPrefs.GetInt("Score_0", 0));
     }
 
     public void GameOver()
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
     {
         currentScore += score;
         uiManager.UpdateScore(currentScore);
+        uiManager.UpdateBigScore(currentScore);
         Debug.Log("Score: " + currentScore);
     }
     public void BestScore()

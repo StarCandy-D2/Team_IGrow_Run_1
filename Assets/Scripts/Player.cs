@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rigid;
-    private BoxCollider2D boxCollider;   
+    private BoxCollider2D boxCollider;
 
+
+    [SerializeField] private float invinciblityDuration = 1.0f;
+    private bool isInvincible = false;
 
     [SerializeField] float gravity = -9.8f; //중력 수동구현 
     [SerializeField] float jumpPower = 10f; //점프력 수동구현
@@ -28,8 +31,18 @@ public class Player : MonoBehaviour
     private float elapsedTime = 0f;
 
     private int currentHp;
+    public int CurrentHp
+    {
+        get { return currentHp; }
+        set
+        {
+            currentHp = Mathf.Clamp(value, 0, maxHp);
+        }
+    }
+    public Slider hpSlider;
     public Slider hpSlider;
     public bool isDead = false; // 죽음 여부 확인
+    public bool isGod = false;
     bool isFlap = false; // 점프 여부 확인
     private bool isGrounded = false;
 
@@ -138,8 +151,12 @@ public class Player : MonoBehaviour
     {
         Debug.Log("트리거 충돌 감지: " + other.gameObject.name);
 
-        if (other.CompareTag("Obstacles"))
+        if (other.CompareTag("Obstacles")&& !isInvincible)//장애물과 충돌 & 무적이 아니면 대미지
         {
+            UpdateHPSlider(1);
+            if (isGod) return;
+
+
             UpdateHPSlider(1);
             Debug.Log($"장애물 트리거 충돌! 현재 체력: {currentHp}");
 
@@ -148,6 +165,15 @@ public class Player : MonoBehaviour
                 isDead = true;
                 GameManager.Instance.GameOver();
             }
+            StartCoroutine(InvinciblityCoroutine());
         }
+    }
+    private IEnumerator InvinciblityCoroutine()
+    {
+        isInvincible = true;
+        Debug.Log("무적시작");
+        yield return new WaitForSeconds(invinciblityDuration);
+        isInvincible = false;
+        Debug.Log("무적 끝");
     }
 }
