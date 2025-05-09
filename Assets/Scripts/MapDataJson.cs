@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using System;
+using JetBrains.Annotations;
 
 
 public class MapDataJson : MonoBehaviour
 {
     public struct PrefebsStruct
     {
+        public string Stage { get; private set; }
         public float[] Ground { get; private set; }
         public float[] JumpObstacle { get; private set; }
         public float[] DoubleJumpObstacle { get; private set; }
         public float[] SlideObstacle { get; private set; }
-        public PrefebsStruct(float[] ground, float[] jumpObstacle, float[] doubleJumpObstacle, float[] slideObstacle)
+        public PrefebsStruct(string stage, float[] ground, float[] jumpObstacle, float[] doubleJumpObstacle, float[] slideObstacle)
         {
-            Ground = ground; JumpObstacle = jumpObstacle; DoubleJumpObstacle = doubleJumpObstacle; SlideObstacle = slideObstacle;
+            Stage = stage; Ground = ground; JumpObstacle = jumpObstacle; DoubleJumpObstacle = doubleJumpObstacle; SlideObstacle = slideObstacle;
         }
     }
 
@@ -27,7 +29,7 @@ public class MapDataJson : MonoBehaviour
     Vector2[] slideObstacleVec;
 
     int mapCode;
-
+    int stageCode;
     private void Start()
     {
         string jsonString = Resources.Load("MapData").ToString();
@@ -38,6 +40,7 @@ public class MapDataJson : MonoBehaviour
     public void GetCode()
     {
         mapCode = GetRandomCode();
+        stageCode = GameManager.Instance.stage -1;
 
         GetGroundCode();
         GetJumpObstacleCode();
