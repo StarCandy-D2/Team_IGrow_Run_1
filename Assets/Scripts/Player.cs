@@ -65,8 +65,8 @@ public class Player : MonoBehaviour
         currentRunSpeed = BaseRunSpeed;
 
         currentHp = maxHp;
-        hpSlider.maxValue = maxHp;
-        hpSlider.value = currentHp;
+        hpSlider.maxValue = 1f;
+        hpSlider.value = 1f;
     }
 
     void Update()
@@ -124,7 +124,9 @@ public class Player : MonoBehaviour
     {
         currentHp -= amount;
         currentHp = Mathf.Clamp(currentHp, 0, maxHp);
-        hpSlider.value = currentHp;
+
+        float percent = (float)currentHp / maxHp;
+        hpSlider.value = percent;
 
         if (currentHp <= 0)
         {
@@ -163,7 +165,7 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Obstacles")&& !isInvincible)//장애물과 충돌 & 무적이 아니면 대미지
         {
-            UpdateHPSlider(1);
+
             if (isGod) return;
 
 
