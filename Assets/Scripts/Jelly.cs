@@ -29,7 +29,7 @@ public class Jelly : MonoBehaviour
         {
             hasEaten = true;
             Debug.Log(++score); // UIÀÇ ½ºÄÚ¾î¶û ¿¬µ¿ÇÏ¿© »ç¿ë
-            Debug.Log("Á©¸® ¸Ô±â");
+            //Debug.Log("Á©¸® ¸Ô±â");
             GameManager.Instance.AddScore(scoreValue);
             animator.SetBool("IsEat", true);
 

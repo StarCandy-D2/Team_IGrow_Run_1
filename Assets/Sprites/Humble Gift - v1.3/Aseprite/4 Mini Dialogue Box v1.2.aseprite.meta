@@ -1,0 +1,1791 @@
+fileFormatVersion: 2
+guid: 85efe7d1108fc4645b873f93d5461cd1
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: 4 Mini Dialogue Box v1.2_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 672
+      height: 480
+    spriteID: e6a2c7c52be97924c9bed6353dc3c80b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: 4 Mini Dialogue Box v1.2_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 492
+      width: 672
+      height: 480
+    spriteID: 0e423b42920f9824d81e747841c443d4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 492}
+  - name: 4 Mini Dialogue Box v1.2_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 980
+      width: 672
+      height: 480
+    spriteID: f769d1793c9909947acaeb93c3fc9ba7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 980}
+  - name: 4 Mini Dialogue Box v1.2_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1468
+      width: 672
+      height: 480
+    spriteID: 5da2b48eb033af74b98b64322a07a35f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1468}
+  - name: 4 Mini Dialogue Box v1.2_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1956
+      width: 672
+      height: 480
+    spriteID: 74646b323b4ffc04081ac03f5b0353bd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1956}
+  - name: 4 Mini Dialogue Box v1.2_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2444
+      width: 672
+      height: 480
+    spriteID: 3525b1f8d72829148b32d816c54297dd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2444}
+  - name: 4 Mini Dialogue Box v1.2_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2932
+      width: 672
+      height: 480
+    spriteID: df3c35642e0e5e340ae70ba52ba6ef5a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2932}
+  - name: 4 Mini Dialogue Box v1.2_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3420
+      width: 672
+      height: 480
+    spriteID: d1ce7ec48c4c5494d83a733da3a00b42
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 3420}
+  - name: 4 Mini Dialogue Box v1.2_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3908
+      width: 672
+      height: 480
+    spriteID: 9dd0a0c96bf28a444b3b4e7887ab057f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 3908}
+  - name: 4 Mini Dialogue Box v1.2_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4396
+      width: 672
+      height: 480
+    spriteID: 2d316615af14500458026282ca32f5d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4396}
+  - name: 4 Mini Dialogue Box v1.2_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4884
+      width: 672
+      height: 480
+    spriteID: 3e7cc47b855251f4fa33ea9e997be533
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4884}
+  - name: 4 Mini Dialogue Box v1.2_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 5372
+      width: 672
+      height: 480
+    spriteID: 64cae5d301fd9e949a6230b0eff08e0f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 5372}
+  - name: 4 Mini Dialogue Box v1.2_Frame_12
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 5860
+      width: 672
+      height: 480
+    spriteID: 54a1bcc5ad56ba047ae01f5828fdcaba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 5860}
+  - name: 4 Mini Dialogue Box v1.2_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6348
+      width: 672
+      height: 480
+    spriteID: 150055cddfec8d443bb2853309d919a6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 6348}
+  - name: 4 Mini Dialogue Box v1.2_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6836
+      width: 672
+      height: 480
+    spriteID: 77bdc89830ac1b64b93ee2022de62131
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 6836}
+  - name: 4 Mini Dialogue Box v1.2_Frame_15
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 7324
+      width: 672
+      height: 480
+    spriteID: 4a53f34d0183d97458f195111fb14f27
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 7324}
+  - name: 4 Mini Dialogue Box v1.2_Frame_16
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 4
+      width: 672
+      height: 480
+    spriteID: 16c6abb6a0dd1b54392e709bc971cdc7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 4}
+  - name: 4 Mini Dialogue Box v1.2_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 492
+      width: 672
+      height: 480
+    spriteID: 0db4986264c334b48b1e55d3935f3ce8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 492}
+  - name: 4 Mini Dialogue Box v1.2_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 980
+      width: 672
+      height: 480
+    spriteID: 3db75ef6070362c4db9d52cb68cfc452
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 980}
+  - name: 4 Mini Dialogue Box v1.2_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 1468
+      width: 672
+      height: 480
+    spriteID: 238eb178cdc060147bf5276f08a2805d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 1468}
+  - name: 4 Mini Dialogue Box v1.2_Frame_20
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 1956
+      width: 672
+      height: 480
+    spriteID: 263c62a54378a7340a9b031cf02a69dc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 1956}
+  - name: 4 Mini Dialogue Box v1.2_Frame_21
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 2444
+      width: 672
+      height: 480
+    spriteID: 4f1a3c9514169704cb6bf0a2202499fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 2444}
+  - name: 4 Mini Dialogue Box v1.2_Frame_22
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 2932
+      width: 672
+      height: 480
+    spriteID: d66e96c24080b7b4e831cb4f50cf412c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 2932}
+  - name: 4 Mini Dialogue Box v1.2_Frame_23
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 3420
+      width: 672
+      height: 480
+    spriteID: 22c8a4be650070747a80ca85dc5b719c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 3420}
+  - name: 4 Mini Dialogue Box v1.2_Frame_24
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 3908
+      width: 672
+      height: 480
+    spriteID: 2183baeeb4b8fcf4590c90733e48d427
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 3908}
+  - name: 4 Mini Dialogue Box v1.2_Frame_25
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 4396
+      width: 672
+      height: 480
+    spriteID: 835af7660df5ad14dae851f4b7ae2bc0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 4396}
+  - name: 4 Mini Dialogue Box v1.2_Frame_26
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 4884
+      width: 672
+      height: 480
+    spriteID: fd634ef027547ad4a866d8a4dc7deb8f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 4884}
+  - name: 4 Mini Dialogue Box v1.2_Frame_27
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 5372
+      width: 672
+      height: 480
+    spriteID: 4bdcbbd26d0f4d343a808bbb9d75c55f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 5372}
+  - name: 4 Mini Dialogue Box v1.2_Frame_28
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 5860
+      width: 672
+      height: 480
+    spriteID: 120305c2d3c3efa499e8a59ccd55ed8a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 5860}
+  - name: 4 Mini Dialogue Box v1.2_Frame_29
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 6348
+      width: 672
+      height: 480
+    spriteID: ead88a34a8233eb4d80834fcced83dda
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 6348}
+  - name: 4 Mini Dialogue Box v1.2_Frame_30
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 6836
+      width: 672
+      height: 480
+    spriteID: ec00cf44466993a45bc049cc9eb8f05c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 6836}
+  - name: 4 Mini Dialogue Box v1.2_Frame_31
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 7324
+      width: 672
+      height: 480
+    spriteID: aa82017867af4ac45b2e21a2bbd6b635
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 7324}
+  - name: 4 Mini Dialogue Box v1.2_Frame_32
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 4
+      width: 672
+      height: 480
+    spriteID: 96e71098bb1908d4a915353e51eb3ab0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 4}
+  - name: 4 Mini Dialogue Box v1.2_Frame_33
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 492
+      width: 672
+      height: 480
+    spriteID: 50b864449859ab84eae5e19516a927e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 492}
+  - name: 4 Mini Dialogue Box v1.2_Frame_34
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 980
+      width: 672
+      height: 480
+    spriteID: fb71ada3ff2486346aa9a51873fc2ce7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 980}
+  - name: 4 Mini Dialogue Box v1.2_Frame_35
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 1468
+      width: 672
+      height: 480
+    spriteID: 8cdd414cb0e06704d99d64e68f37910e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 1468}
+  - name: 4 Mini Dialogue Box v1.2_Frame_36
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 1956
+      width: 672
+      height: 480
+    spriteID: 65853cc0df98d864484593249f7f74ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 1956}
+  - name: 4 Mini Dialogue Box v1.2_Frame_37
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 2444
+      width: 672
+      height: 480
+    spriteID: 7cdbdef580eacaf49ab3d812a72f7f0d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 2444}
+  - name: 4 Mini Dialogue Box v1.2_Frame_38
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 2932
+      width: 672
+      height: 480
+    spriteID: 6cf88b106c76bf942a647134bace4512
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 2932}
+  - name: 4 Mini Dialogue Box v1.2_Frame_39
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 3420
+      width: 672
+      height: 480
+    spriteID: 6fa8cdc0a5643a045ad2daab50153bc8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 3420}
+  - name: 4 Mini Dialogue Box v1.2_Frame_40
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 3908
+      width: 672
+      height: 480
+    spriteID: 4512d3ffde89d1d44aaaf182647101c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 3908}
+  - name: 4 Mini Dialogue Box v1.2_Frame_41
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 4396
+      width: 672
+      height: 480
+    spriteID: 32b5c8a76709bb14798d3f62081f85bf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 4396}
+  - name: 4 Mini Dialogue Box v1.2_Frame_42
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 4884
+      width: 672
+      height: 480
+    spriteID: 4f06cfbcb729df745b8624cfda252c8d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 4884}
+  - name: 4 Mini Dialogue Box v1.2_Frame_43
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 5372
+      width: 672
+      height: 480
+    spriteID: fa83929792e9fc44c8c2bdb892f89875
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 5372}
+  - name: 4 Mini Dialogue Box v1.2_Frame_44
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 5860
+      width: 672
+      height: 480
+    spriteID: 277ef471f238c6e4a975747b60b5899c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 5860}
+  - name: 4 Mini Dialogue Box v1.2_Frame_45
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 6348
+      width: 672
+      height: 480
+    spriteID: 8c1da7f1a515df94eb13c9d90a9b28b5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 6348}
+  - name: 4 Mini Dialogue Box v1.2_Frame_46
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 6836
+      width: 672
+      height: 480
+    spriteID: f9477584e8aa6e4458fe80a4e093f645
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 6836}
+  - name: 4 Mini Dialogue Box v1.2_Frame_47
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1364
+      y: 7324
+      width: 672
+      height: 480
+    spriteID: a167c2abb3df44e4ea9e1563c1fcf86c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1364, y: 7324}
+  - name: 4 Mini Dialogue Box v1.2_Frame_48
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2044
+      y: 4
+      width: 672
+      height: 480
+    spriteID: 86100ee51672c6443a54f0a7dd266227
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2044, y: 4}
+  - name: 4 Mini Dialogue Box v1.2_Frame_49
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2044
+      y: 492
+      width: 672
+      height: 480
+    spriteID: 76df756fc38c06b41ad4d7688bacc6cf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2044, y: 492}
+  - name: 4 Mini Dialogue Box v1.2_Frame_50
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2044
+      y: 980
+      width: 672
+      height: 480
+    spriteID: e3028d27e4bfa6d498483a592f93853f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2044, y: 980}
+  - name: 4 Mini Dialogue Box v1.2_Frame_51
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2044
+      y: 1468
+      width: 672
+      height: 480
+    spriteID: 4d780a9a921317a43aaa52666dab18f0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2044, y: 1468}
+  - name: 4 Mini Dialogue Box v1.2_Frame_52
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2044
+      y: 1956
+      width: 672
+      height: 480
+    spriteID: 1cd37f64cfc4e2246bd26e6ac262d121
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2044, y: 1956}
+  - name: 4 Mini Dialogue Box v1.2_Frame_53
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2044
+      y: 2444
+      width: 672
+      height: 480
+    spriteID: 6f7f2615f02ac7a42ae2cb2341169788
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2044, y: 2444}
+  - name: 4 Mini Dialogue Box v1.2_Frame_54
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2044
+      y: 2932
+      width: 672
+      height: 480
+    spriteID: a9fe304afa68cba408a6e775a7b6aee9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2044, y: 2932}
+  - name: 4 Mini Dialogue Box v1.2_Frame_55
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2044
+      y: 3420
+      width: 672
+      height: 480
+    spriteID: c3082423651d77d47ba77b307abb1ced
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2044, y: 3420}
+  - name: 4 Mini Dialogue Box v1.2_Frame_56
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2044
+      y: 3908
+      width: 672
+      height: 480
+    spriteID: dafcc8772bee673449b106ce1629b1ee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2044, y: 3908}
+  - name: 4 Mini Dialogue Box v1.2_Frame_57
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2044
+      y: 4396
+      width: 672
+      height: 480
+    spriteID: f778585de5fac1841815284582bc88e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2044, y: 4396}
+  - name: 4 Mini Dialogue Box v1.2_Frame_58
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2044
+      y: 4884
+      width: 672
+      height: 480
+    spriteID: 61fffc7b89be4ca4584574e55b23ba3a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2044, y: 4884}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 319531393
+    name: 4 Mini Dialogue Box v1.2
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: 4 Mini Dialogue Box v1.2_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: e6a2c7c52be97924c9bed6353dc3c80b
+    - name: 4 Mini Dialogue Box v1.2_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 0e423b42920f9824d81e747841c443d4
+    - name: 4 Mini Dialogue Box v1.2_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: f769d1793c9909947acaeb93c3fc9ba7
+    - name: 4 Mini Dialogue Box v1.2_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 5da2b48eb033af74b98b64322a07a35f
+    - name: 4 Mini Dialogue Box v1.2_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 74646b323b4ffc04081ac03f5b0353bd
+    - name: 4 Mini Dialogue Box v1.2_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 3525b1f8d72829148b32d816c54297dd
+    - name: 4 Mini Dialogue Box v1.2_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: df3c35642e0e5e340ae70ba52ba6ef5a
+    - name: 4 Mini Dialogue Box v1.2_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: d1ce7ec48c4c5494d83a733da3a00b42
+    - name: 4 Mini Dialogue Box v1.2_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 9dd0a0c96bf28a444b3b4e7887ab057f
+    - name: 4 Mini Dialogue Box v1.2_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 2d316615af14500458026282ca32f5d5
+    - name: 4 Mini Dialogue Box v1.2_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 3e7cc47b855251f4fa33ea9e997be533
+    - name: 4 Mini Dialogue Box v1.2_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 64cae5d301fd9e949a6230b0eff08e0f
+    - name: 4 Mini Dialogue Box v1.2_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 54a1bcc5ad56ba047ae01f5828fdcaba
+    - name: 4 Mini Dialogue Box v1.2_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 150055cddfec8d443bb2853309d919a6
+    - name: 4 Mini Dialogue Box v1.2_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 77bdc89830ac1b64b93ee2022de62131
+    - name: 4 Mini Dialogue Box v1.2_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 4a53f34d0183d97458f195111fb14f27
+    - name: 4 Mini Dialogue Box v1.2_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 16c6abb6a0dd1b54392e709bc971cdc7
+    - name: 4 Mini Dialogue Box v1.2_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 0db4986264c334b48b1e55d3935f3ce8
+    - name: 4 Mini Dialogue Box v1.2_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 3db75ef6070362c4db9d52cb68cfc452
+    - name: 4 Mini Dialogue Box v1.2_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 238eb178cdc060147bf5276f08a2805d
+    - name: 4 Mini Dialogue Box v1.2_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 263c62a54378a7340a9b031cf02a69dc
+    - name: 4 Mini Dialogue Box v1.2_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 4f1a3c9514169704cb6bf0a2202499fb
+    - name: 4 Mini Dialogue Box v1.2_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: d66e96c24080b7b4e831cb4f50cf412c
+    - name: 4 Mini Dialogue Box v1.2_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 22c8a4be650070747a80ca85dc5b719c
+    - name: 4 Mini Dialogue Box v1.2_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 2183baeeb4b8fcf4590c90733e48d427
+    - name: 4 Mini Dialogue Box v1.2_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 835af7660df5ad14dae851f4b7ae2bc0
+    - name: 4 Mini Dialogue Box v1.2_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: fd634ef027547ad4a866d8a4dc7deb8f
+    - name: 4 Mini Dialogue Box v1.2_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 4bdcbbd26d0f4d343a808bbb9d75c55f
+    - name: 4 Mini Dialogue Box v1.2_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 120305c2d3c3efa499e8a59ccd55ed8a
+    - name: 4 Mini Dialogue Box v1.2_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: ead88a34a8233eb4d80834fcced83dda
+    - name: 4 Mini Dialogue Box v1.2_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: ec00cf44466993a45bc049cc9eb8f05c
+    - name: 4 Mini Dialogue Box v1.2_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: aa82017867af4ac45b2e21a2bbd6b635
+    - name: 4 Mini Dialogue Box v1.2_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 96e71098bb1908d4a915353e51eb3ab0
+    - name: 4 Mini Dialogue Box v1.2_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 50b864449859ab84eae5e19516a927e8
+    - name: 4 Mini Dialogue Box v1.2_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: fb71ada3ff2486346aa9a51873fc2ce7
+    - name: 4 Mini Dialogue Box v1.2_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 8cdd414cb0e06704d99d64e68f37910e
+    - name: 4 Mini Dialogue Box v1.2_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 65853cc0df98d864484593249f7f74ab
+    - name: 4 Mini Dialogue Box v1.2_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 7cdbdef580eacaf49ab3d812a72f7f0d
+    - name: 4 Mini Dialogue Box v1.2_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 6cf88b106c76bf942a647134bace4512
+    - name: 4 Mini Dialogue Box v1.2_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 6fa8cdc0a5643a045ad2daab50153bc8
+    - name: 4 Mini Dialogue Box v1.2_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 4512d3ffde89d1d44aaaf182647101c3
+    - name: 4 Mini Dialogue Box v1.2_Frame_41
+      frameIndex: 41
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 32b5c8a76709bb14798d3f62081f85bf
+    - name: 4 Mini Dialogue Box v1.2_Frame_42
+      frameIndex: 42
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 4f06cfbcb729df745b8624cfda252c8d
+    - name: 4 Mini Dialogue Box v1.2_Frame_43
+      frameIndex: 43
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: fa83929792e9fc44c8c2bdb892f89875
+    - name: 4 Mini Dialogue Box v1.2_Frame_44
+      frameIndex: 44
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 277ef471f238c6e4a975747b60b5899c
+    - name: 4 Mini Dialogue Box v1.2_Frame_45
+      frameIndex: 45
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 8c1da7f1a515df94eb13c9d90a9b28b5
+    - name: 4 Mini Dialogue Box v1.2_Frame_46
+      frameIndex: 46
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: f9477584e8aa6e4458fe80a4e093f645
+    - name: 4 Mini Dialogue Box v1.2_Frame_47
+      frameIndex: 47
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: a167c2abb3df44e4ea9e1563c1fcf86c
+    - name: 4 Mini Dialogue Box v1.2_Frame_48
+      frameIndex: 48
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 86100ee51672c6443a54f0a7dd266227
+    - name: 4 Mini Dialogue Box v1.2_Frame_49
+      frameIndex: 49
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 76df756fc38c06b41ad4d7688bacc6cf
+    - name: 4 Mini Dialogue Box v1.2_Frame_50
+      frameIndex: 50
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: e3028d27e4bfa6d498483a592f93853f
+    - name: 4 Mini Dialogue Box v1.2_Frame_51
+      frameIndex: 51
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 4d780a9a921317a43aaa52666dab18f0
+    - name: 4 Mini Dialogue Box v1.2_Frame_52
+      frameIndex: 52
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 1cd37f64cfc4e2246bd26e6ac262d121
+    - name: 4 Mini Dialogue Box v1.2_Frame_53
+      frameIndex: 53
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 6f7f2615f02ac7a42ae2cb2341169788
+    - name: 4 Mini Dialogue Box v1.2_Frame_54
+      frameIndex: 54
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: a9fe304afa68cba408a6e775a7b6aee9
+    - name: 4 Mini Dialogue Box v1.2_Frame_55
+      frameIndex: 55
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: c3082423651d77d47ba77b307abb1ced
+    - name: 4 Mini Dialogue Box v1.2_Frame_56
+      frameIndex: 56
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: dafcc8772bee673449b106ce1629b1ee
+    - name: 4 Mini Dialogue Box v1.2_Frame_57
+      frameIndex: 57
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: f778585de5fac1841815284582bc88e8
+    - name: 4 Mini Dialogue Box v1.2_Frame_58
+      frameIndex: 58
+      cellRect:
+        x: 0
+        y: 0
+        width: 672
+        height: 480
+      spriteId: 61fffc7b89be4ca4584574e55b23ba3a
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 672, y: 480}
