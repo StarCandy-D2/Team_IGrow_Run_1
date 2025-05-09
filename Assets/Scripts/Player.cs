@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private float elapsedTime = 0f;
 
     public bool isDead = false; // 죽음 여부 확인
+    public bool isGod = false;
     bool isFlap = false; // 점프 여부 확인
 
     private void Start()
@@ -84,7 +85,8 @@ public class Player : MonoBehaviour
 
 
         if (collision.transform.tag == "Obstacles")
-        {   
+        {
+            if (isGod) return;
 
             isDead = true;
 
