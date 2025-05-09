@@ -27,7 +27,16 @@ public class Player : MonoBehaviour
     private float elapsedTime = 0f;
 
     private int currentHp;
+    public int CurrentHp
+    {
+        get { return currentHp; }
+        set 
+        {
+            currentHp = Mathf.Clamp(value, 0, maxHp);
+        }
+    }
     public bool isDead = false; // 죽음 여부 확인
+    public bool isGod = false;
     bool isFlap = false; // 점프 여부 확인
     private bool isGrounded = false;
     private void Start()
@@ -123,6 +132,7 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Obstacles"))
         {
+            if (isGod) return;
             currentHp--;
             Debug.Log($"장애물 트리거 충돌! 현재 체력: {currentHp}");
 
