@@ -24,11 +24,11 @@ public class Jelly : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!hasEaten)
+        if (!hasEaten) // 트리거가 두번 작동하는 것을 방지하기위한 조건문
         {
             hasEaten = true;
-            Debug.Log(++score);
-            Debug.Log("젤리 먹기");
+            //Debug.Log(++score); // UI의 스코어랑 연동하여 사용
+            //Debug.Log("젤리 먹기");
             animator.SetBool("IsEat", true);
 
             Destroy(this.gameObject, 0.2f);
