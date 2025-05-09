@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] float gravity = -9.8f; //중력 수동구현 
     [SerializeField] float jumpPower = 10f; //점프력 수동구현
     [SerializeField] float BaseRunSpeed;
-    [SerializeField] private int maxHp = 6; // 체력
+    [SerializeField] private int maxHp = 5; // 체력
     [SerializeField] float stageInterval = 10f;     //stage time
     [SerializeField] float speedIncreasePerStage = 0.5f; // increase speed per stage ex)3stage =  +1.5f
     [SerializeField] int jumpCount = 0;
@@ -33,15 +34,18 @@ public class Player : MonoBehaviour
     public int CurrentHp
     {
         get { return currentHp; }
-        set 
+        set
         {
             currentHp = Mathf.Clamp(value, 0, maxHp);
         }
     }
+    public Slider hpSlider;
+
     public bool isDead = false; // 죽음 여부 확인
     public bool isGod = false;
     bool isFlap = false; // 점프 여부 확인
     private bool isGrounded = false;
+
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -49,7 +53,10 @@ public class Player : MonoBehaviour
         originalSize = boxCollider.size;
         originalOffset = boxCollider.offset;
         currentRunSpeed = BaseRunSpeed;
+
         currentHp = maxHp;
+        hpSlider.maxValue = maxHp;
+        hpSlider.value = currentHp;
     }
 
     void Update()
@@ -103,6 +110,17 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void UpdateHPSlider(int amount) // 체력바 조절
+    {
+        currentHp -= amount;
+        currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+        hpSlider.value = currentHp;
+
+        if (currentHp <= 0)
+        {
+            GameManager.Instance.GameOver();
+        }
+    }
 
     void Sliding()
     {
@@ -135,9 +153,11 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Obstacles")&& !isInvincible)//장애물과 충돌 & 무적이 아니면 대미지
         {
+            UpdateHPSlider(1);
             if (isGod) return;
 
-            currentHp--;
+
+            UpdateHPSlider(1);
             Debug.Log($"장애물 트리거 충돌! 현재 체력: {currentHp}");
 
             if (currentHp <= 0)
