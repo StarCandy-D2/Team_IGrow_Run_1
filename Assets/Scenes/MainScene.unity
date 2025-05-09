@@ -639,6 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521c5cd28b0e7e646b51d3dee98bba2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invinciblityDuration: 1
   gravity: -9.8
   jumpPower: 7
   BaseRunSpeed: 0
