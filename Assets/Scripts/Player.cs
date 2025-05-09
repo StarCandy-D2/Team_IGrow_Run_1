@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     [SerializeField] float speedIncreasePerStage = 0.5f; // increase speed per stage ex)3stage =  +1.5f
     private float elapsedTime = 0f;
 
+    [SerializeField] private int maxHp = 6; // 체력
+    private int currentHp;
+
     public bool isDead = false; // 죽음 여부 확인
     bool isFlap = false; // 점프 여부 확인
 
@@ -28,6 +31,7 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();    //추후 콜라이더에 따라 수정
         currentRunSpeed = BaseRunSpeed;
+        currentHp = maxHp;
     }
 
     private void Update()
@@ -84,12 +88,16 @@ public class Player : MonoBehaviour
 
 
         if (collision.transform.tag == "Obstacles")
-        {   
+        {
+            currentHp--;
+            Debug.Log($"충돌! 남은 체력: {currentHp}");
 
-            isDead = true;
+            if (currentHp <= 0)
+            {
+                isDead = true;
 
-            GameManager.Instance.GameOver();
+                GameManager.Instance.GameOver();
+            }
         }
-
     }
 }
