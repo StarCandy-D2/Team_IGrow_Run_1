@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     [SerializeField] float speedIncreasePerStage = 0.5f; // increase speed per stage ex)3stage =  +1.5f
     private float elapsedTime = 0f;
 
+    public bool isDead = false; // 죽음 여부 확인
+    bool isFlap = false; // 점프 여부 확인
+
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -40,7 +43,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void RunAndJump()
+        void RunAndJump()
     {
         Vector2 vec = rigid.velocity;
         vec.x = currentRunSpeed;
@@ -70,10 +73,23 @@ public class Player : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {       
+        if (isDead)
+        return;
         if(collision.transform.tag == "Ground")
         {
             jumpCount = 0;
+            return;
         }
+
+
+        if (collision.transform.tag == "Obstacles")
+        {   
+
+            isDead = true;
+
+            GameManager.Instance.GameOver();
+        }
+
     }
 }

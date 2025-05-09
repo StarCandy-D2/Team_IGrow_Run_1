@@ -53,6 +53,10 @@ public class UIManager : MonoBehaviour
     {
         scoreText.text = score.ToString();
     }
+    public void UpdateBestScore(int bestscore)
+    {
+        BestScore.text = bestscore.ToString();
+    }
     public void ReturnToMainScene()
     {
         SceneManager.LoadScene("StartUIScene"); // 메인씬 이름 정확히!

@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over");
         ScoreManager.SaveScore(currentScore);
+        PlayerPrefs.SetInt("LastScore", currentScore); // 대기화면에 띄울 점수 저장
         uiManager.SetRestart();
     }
 

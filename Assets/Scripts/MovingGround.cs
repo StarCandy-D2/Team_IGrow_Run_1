@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovingGround : MonoBehaviour
 {
+    public Player player;
     float movespeed = 5f;
     float origineSpeed;
     bool isBoost = false;
@@ -17,10 +18,15 @@ public class MovingGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         
         Vector3 pos = transform.position;
         pos.x -= movespeed * Time.deltaTime;
         transform.position = pos;
+        if (player.isDead == true)
+        {
+            movespeed = 0;
+        }
     }
 
     public IEnumerator Booster() // 부스터 코루틴 함수
