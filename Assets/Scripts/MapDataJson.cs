@@ -36,7 +36,7 @@ public class MapDataJson : MonoBehaviour
     }
     public void GetCode()
     {
-        GetRandomCode();
+        mapCode = GetRandomCode();
 
         GetGroundCode();
         GetJumpObstacleCode();
