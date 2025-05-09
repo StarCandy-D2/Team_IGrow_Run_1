@@ -945,18 +945,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005080693}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 521c5cd28b0e7e646b51d3dee98bba2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravity: -9.8
   jumpPower: 5
   BaseRunSpeed: 0
-  jumpCount: 0
-  stage: 0
+  maxHp: 6
   stageInterval: 10
   speedIncreasePerStage: 0.5
-  maxHp: 6
+  jumpCount: 0
+  stage: 0
   isDead: 0
 --- !u!212 &1005080697
 SpriteRenderer:
