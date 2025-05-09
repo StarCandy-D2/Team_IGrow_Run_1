@@ -36,13 +36,14 @@ public class MovingGround : MonoBehaviour
         Debug.Log("빨라진다.");
         movespeed = 15f;
         isBoost = true;
-
+        player.isGod = true;
         yield return new WaitForSeconds(2f); //해당 함수만 2초 정지  
         
         Debug.Log("2초후");
         movespeed = origineSpeed; // 원래 스피드로 복귀
         Debug.Log("돌아왔다.");
         isBoost = false;
+        player.isGod = false;
 
 
     }
