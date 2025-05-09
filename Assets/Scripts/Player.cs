@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         }
     }
     public Slider hpSlider;
-    public Slider hpSlider;
+
     public bool isDead = false; // 죽음 여부 확인
     public bool isGod = false;
     bool isFlap = false; // 점프 여부 확인
