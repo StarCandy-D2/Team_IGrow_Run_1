@@ -38,8 +38,11 @@ public class Player : MonoBehaviour
             currentHp = Mathf.Clamp(value, 0, maxHp);
         }
     }
+
+    public int coins = 0; // 플레이어 가지고 있는 코인 갯수
+    
     public bool isDead = false; // 죽음 여부 확인
-    public bool isGod = false;
+    public bool isGod = false; // 무적 여부 확인
     bool isFlap = false; // 점프 여부 확인
     private bool isGrounded = false;
     private void Start()
