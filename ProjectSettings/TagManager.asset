@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Obstacles
+  - Block
+  - SilverCoin
+  - GoldCoin
   layers:
   - Default
   - TransparentFX
