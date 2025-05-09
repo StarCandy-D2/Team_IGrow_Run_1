@@ -86,7 +86,7 @@ public class UIManager : MonoBehaviour
     }
     public void ReturnToMainScene()
     {
-        SceneManager.LoadScene("LobbyScene"); // 메인씬 이름 정확히!
+        SceneManager.LoadScene("StartUIScene"); // 메인씬 이름 정확히!
     }
 
 

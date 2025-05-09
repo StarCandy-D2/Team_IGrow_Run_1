@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private int bestscore = 0;
     UIManager uiManager;
     ScoreManager scoreManager;
+    ShopSceneManager shopSceneManager;
 
     public UIManager UIManager
     {

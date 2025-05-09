@@ -57,9 +57,9 @@ public class StartUIManager : MonoBehaviour
         CreditButton.SetActive(true);
         QuitButton.SetActive(true);
     }
-    public void GameStart()
+    public void GotoShop()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("ShopScene");
     }
     public void QuitGame()
     {

@@ -2387,7 +2387,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1637452448}
         m_TargetAssemblyTypeName: StartUIManager, Assembly-CSharp
-        m_MethodName: GameStart
+        m_MethodName: GotoShop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
