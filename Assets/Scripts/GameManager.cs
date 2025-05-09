@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     private int currentScore = 0;
     private int bestscore = 0;
+    public int stage = 1;
     UIManager uiManager;
     ScoreManager scoreManager;
     ShopSceneManager shopSceneManager;
