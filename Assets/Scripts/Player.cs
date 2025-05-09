@@ -39,14 +39,14 @@ public class Player : MonoBehaviour
             currentHp = Mathf.Clamp(value, 0, maxHp);
         }
     }
-<<<<<<< HEAD
+
     public Slider hpSlider;
 
-=======
+
 
     public int coins = 0; // 플레이어 가지고 있는 코인 갯수
     
->>>>>>> Obstacle_Item_Minho
+
     public bool isDead = false; // 죽음 여부 확인
     public bool isGod = false; // 무적 여부 확인
     bool isFlap = false; // 점프 여부 확인
