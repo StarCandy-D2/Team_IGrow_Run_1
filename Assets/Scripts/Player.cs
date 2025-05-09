@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] float speedIncreasePerStage = 0.5f; // increase speed per stage ex)3stage =  +1.5f
     private float elapsedTime = 0f;
 
-    [SerializeField] private int maxHp = 6; // 체력
+    [SerializeField] private int maxHp = 5; // 체력
     private int currentHp;
 
     public bool isDead = false; // 죽음 여부 확인
