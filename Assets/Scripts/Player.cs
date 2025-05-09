@@ -21,7 +21,8 @@ public class Player : MonoBehaviour
     private float elapsedTime = 0f;
 
     [SerializeField] private int maxHp = 6; // 체력
-    private int currentHp;
+    public int currentHp;
+    
 
     public bool isDead = false; // 죽음 여부 확인
     public bool isGod = false;
