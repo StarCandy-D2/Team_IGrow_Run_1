@@ -3842,7 +3842,7 @@ MonoBehaviour:
   maxhptooltiptxt: {fileID: 1739818215}
   lifeitemtooltiptxt: {fileID: 2014428628}
   otheritemtooltiptxt: {fileID: 251884390}
-  recentCoin: {fileID: 0}
+  recentCoin: {fileID: 434781453}
   jellyprice: 1
   maxHPprice: 1
   lifeprice: 1
