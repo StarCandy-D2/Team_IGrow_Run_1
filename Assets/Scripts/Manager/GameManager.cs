@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     UIManager uiManager;
     ScoreManager scoreManager;
     ShopSceneManager shopSceneManager;
+    public int stage = 1;
 
     public UIManager UIManager
     {
