@@ -2068,6 +2068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GroundPrefeb: {fileID: 3667662769688481623, guid: 08bc03e722d233543aa1aeffda4417fa, type: 3}
+  PlatformPrefeb: {fileID: 3667662769688481623, guid: a94d1ccb8f7af8a4eb957320442d41df, type: 3}
   JumpObstaclePrefeb: {fileID: 865084180058006958, guid: a47f6ed18d01d1a48abae27bc76572be, type: 3}
   DoubleJumpObstaclePrefeb: {fileID: 5174665195977750102, guid: 716e908b5bfbb6444891884df9aa54c0, type: 3}
   SlideObstaclePrefeb: {fileID: 7529857571837634547, guid: 4cea2a0f5658b06458614188d8db3cc8, type: 3}
