@@ -8,16 +8,15 @@ public class Player : MonoBehaviour
     Rigidbody2D rigid;
     private BoxCollider2D boxCollider;
 
-
+    public CharacterStats stats; 
     [SerializeField] private float invinciblityDuration = 1.0f;
     private bool isInvincible = false;
 
     [SerializeField] float gravity = -9.8f; //중력 수동구현 
-    [SerializeField] float jumpPower = 10f; //점프력 수동구현
-    [SerializeField] float BaseRunSpeed;
-    [SerializeField] private int maxHp = 5; // 체력
-    [SerializeField] float stageInterval = 10f;     //stage time
-    [SerializeField] float speedIncreasePerStage = 0.5f; // increase speed per stage ex)3stage =  +1.5f
+    
+   
+    
+    
     [SerializeField] int jumpCount = 0;
 
     private Vector2 originalSize;
@@ -27,8 +26,7 @@ public class Player : MonoBehaviour
 
     private float verticalSpeed = 0f;
     private float currentRunSpeed;
-    public int stage = 0;
-    private float elapsedTime = 0f;
+    private float timeElapsed = 0f;
 
     private int currentHp;
     public int jellylevel = 1;
@@ -40,7 +38,7 @@ public class Player : MonoBehaviour
         get { return currentHp; }
         set
         {
-            currentHp = Mathf.Clamp(value, 0, maxHp);
+            currentHp = Mathf.Clamp(value, 0, stats.maxHp);
         }
     }
 
@@ -62,9 +60,9 @@ public class Player : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         originalSize = boxCollider.size;
         originalOffset = boxCollider.offset;
-        currentRunSpeed = BaseRunSpeed;
+        currentRunSpeed = stats.baseRunSpeed;
 
-        currentHp = maxHp;
+        currentHp = stats.maxHp;
         hpSlider.maxValue = 1f;
         hpSlider.value = 1f;
     }
@@ -90,7 +88,7 @@ public class Player : MonoBehaviour
         if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("Jump")) && jumpCount < 2)
         {
             jumpCount++;
-            verticalSpeed = jumpPower;
+            verticalSpeed = stats.jumpPower;
         }
 
         // 이동
@@ -101,13 +99,15 @@ public class Player : MonoBehaviour
         Sliding();
 
         // 스테이지 증가
-        elapsedTime += Time.deltaTime;
-        if (elapsedTime >= stageInterval)
+        float interval = GameManager.Instance.stageInterval;
+        int currentStage = GameManager.Instance.stage;
+        timeElapsed += Time.deltaTime;
+        if (timeElapsed >= interval)
         {
-            elapsedTime -= stageInterval;
-            stage++;
-            currentRunSpeed = BaseRunSpeed + stage * speedIncreasePerStage;
+           
+            timeElapsed = 0;
         }
+        currentRunSpeed = stats.baseRunSpeed + (currentStage - 1) * stats.speedIncreasePerStage;
 
         if (hit.collider != null && verticalSpeed <= 0)
         {
@@ -123,9 +123,9 @@ public class Player : MonoBehaviour
     public void UpdateHPSlider(int amount) // 체력바 조절
     {
         currentHp -= amount;
-        currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+        currentHp = Mathf.Clamp(currentHp, 0, stats.maxHp);
 
-        float percent = (float)currentHp / maxHp;
+        float percent = (float)currentHp / stats.maxHp;
         hpSlider.value = percent;
 
         if (currentHp <= 0)
