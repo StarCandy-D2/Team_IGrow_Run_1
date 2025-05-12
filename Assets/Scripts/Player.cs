@@ -63,6 +63,9 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        jumpKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("JumpKey", "Space"));
+        slideKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SlideKey", "LeftShift"));
+
         rigid = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         originalSize = boxCollider.size;
