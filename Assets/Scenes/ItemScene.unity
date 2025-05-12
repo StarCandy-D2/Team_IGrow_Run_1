@@ -144,6 +144,14 @@ PrefabInstance:
       value: Jelly (4)
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.3587
       objectReference: {fileID: 0}
@@ -209,6 +217,14 @@ PrefabInstance:
       value: Jelly (8)
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4195
       objectReference: {fileID: 0}
@@ -272,6 +288,14 @@ PrefabInstance:
     - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_Name
       value: Jelly (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -788,6 +812,11 @@ MonoBehaviour:
   speedIncreasePerStage: 0.5
   jumpCount: 0
   stage: 0
+  jellylevel: 1
+  maxHPlevel: 1
+  otherlevel: 1
+  lifelevel: 1
+  hpSlider: {fileID: 0}
   coins: 0
   isDead: 0
   isGod: 0
@@ -989,6 +1018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693fdec80aa379b418f68766927d6b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stage: 1
 --- !u!4 &1295193090
 Transform:
   m_ObjectHideFlags: 0
@@ -1028,6 +1058,14 @@ PrefabInstance:
     - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_Name
       value: Jelly (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1297,6 +1335,14 @@ PrefabInstance:
       value: Jelly (6)
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.3937
       objectReference: {fileID: 0}
@@ -1484,6 +1530,14 @@ PrefabInstance:
     - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_Name
       value: Jelly (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1770,6 +1824,14 @@ PrefabInstance:
       value: Jelly (7)
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4071
       objectReference: {fileID: 0}
@@ -2004,6 +2066,14 @@ PrefabInstance:
       value: Jelly (2)
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.3239
       objectReference: {fileID: 0}
@@ -2074,6 +2144,14 @@ PrefabInstance:
       value: Jelly
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.431131
       objectReference: {fileID: 0}
@@ -2135,6 +2213,14 @@ PrefabInstance:
       value: GoldCoin
       objectReference: {fileID: 0}
     - target: {fileID: 3197364245891067593, guid: aeccc335091ae774cae9243608aef5a2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197364245891067593, guid: aeccc335091ae774cae9243608aef5a2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197364245891067593, guid: aeccc335091ae774cae9243608aef5a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.3766
       objectReference: {fileID: 0}
@@ -2173,6 +2259,18 @@ PrefabInstance:
     - target: {fileID: 3197364245891067593, guid: aeccc335091ae774cae9243608aef5a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826918264781301313, guid: aeccc335091ae774cae9243608aef5a2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826918264781301313, guid: aeccc335091ae774cae9243608aef5a2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826918264781301313, guid: aeccc335091ae774cae9243608aef5a2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
