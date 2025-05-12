@@ -240,14 +240,14 @@ Transform:
   m_GameObject: {fileID: 103557599}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.5, y: -4.04, z: 10}
+  m_LocalPosition: {x: 38.5, y: -4.04, z: 0}
   m_LocalScale: {x: 89.3, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 435282817}
   - {fileID: 1529588692}
   - {fileID: 1963045868}
-  m_Father: {fileID: 1944610805}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &103557601
 MonoBehaviour:
@@ -399,7 +399,7 @@ RectTransform:
   - {fileID: 1396940763}
   - {fileID: 1682660745}
   - {fileID: 678214485}
-  m_Father: {fileID: 1944610805}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -517,11 +517,11 @@ Transform:
   m_GameObject: {fileID: 197147933}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.35, y: -3.04, z: 10}
+  m_LocalPosition: {x: -3.35, y: -3.04, z: 0}
   m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1944610805}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &197147935
 BoxCollider2D:
@@ -583,7 +583,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.6
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -659,15 +659,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521c5cd28b0e7e646b51d3dee98bba2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: f969729683c112b4aa7d552ec8414a88, type: 2}
   invinciblityDuration: 1
   gravity: -9.8
-  jumpPower: 7
-  BaseRunSpeed: 0
-  maxHp: 6
-  stageInterval: 10
-  speedIncreasePerStage: 0.5
   jumpCount: 0
-  stage: 0
+  jellylevel: 1
+  maxHPlevel: 1
+  otherlevel: 1
+  lifelevel: 1
   hpSlider: {fileID: 1245906804}
   coins: 0
   isDead: 0
@@ -4381,11 +4380,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 103557600}
-  - {fileID: 197147934}
-  - {fileID: 175970552}
-  - {fileID: 2081517933}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1944610806
@@ -4466,12 +4461,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081517932}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1944610805}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2081517934
 MonoBehaviour:
@@ -4485,6 +4480,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693fdec80aa379b418f68766927d6b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageInterval: 10
+  stage: 1
 --- !u!1 &2087739497
 GameObject:
   m_ObjectHideFlags: 0
@@ -4560,3 +4557,7 @@ SceneRoots:
   - {fileID: 1944610805}
   - {fileID: 2087739500}
   - {fileID: 1102260283}
+  - {fileID: 197147934}
+  - {fileID: 103557600}
+  - {fileID: 2081517933}
+  - {fileID: 175970552}
