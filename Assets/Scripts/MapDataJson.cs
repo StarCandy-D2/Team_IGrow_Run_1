@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System;
 using JetBrains.Annotations;
 
+
 public class MapDataJson : MonoBehaviour
 {
     public struct PrefebsStruct

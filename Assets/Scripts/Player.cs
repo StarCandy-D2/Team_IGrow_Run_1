@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] float gravity = -9.8f; //중력 수동구현 
     [SerializeField] float jumpPower = 10f; //점프력 수동구현
     [SerializeField] float BaseRunSpeed;
-    [SerializeField] private int maxHp = 6; // 체력
+    [SerializeField] private int maxHp = 5; // 체력
     [SerializeField] float stageInterval = 10f;     //stage time
     [SerializeField] float speedIncreasePerStage = 0.5f; // increase speed per stage ex)3stage =  +1.5f
     [SerializeField] int jumpCount = 0;
@@ -30,18 +31,31 @@ public class Player : MonoBehaviour
     private float elapsedTime = 0f;
 
     private int currentHp;
+    public int jellylevel = 1;
+    public int maxHPlevel = 1;
+    public int otherlevel = 1;
+    public int lifelevel = 1;
     public int CurrentHp
     {
         get { return currentHp; }
-        set 
+        set
         {
             currentHp = Mathf.Clamp(value, 0, maxHp);
         }
     }
+
+    public Slider hpSlider;
+
+
+
+    public int coins = 0; // 플레이어 가지고 있는 코인 갯수
+    
+
     public bool isDead = false; // 죽음 여부 확인
-    public bool isGod = false;
+    public bool isGod = false; // 무적 여부 확인
     bool isFlap = false; // 점프 여부 확인
     private bool isGrounded = false;
+
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -49,7 +63,10 @@ public class Player : MonoBehaviour
         originalSize = boxCollider.size;
         originalOffset = boxCollider.offset;
         currentRunSpeed = BaseRunSpeed;
+
         currentHp = maxHp;
+        hpSlider.maxValue = 1f;
+        hpSlider.value = 1f;
     }
 
     void Update()
@@ -103,6 +120,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void UpdateHPSlider(int amount) // 체력바 조절
+    {
+        currentHp -= amount;
+        currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+
+        float percent = (float)currentHp / maxHp;
+        hpSlider.value = percent;
+
+        if (currentHp <= 0)
+        {
+            GameManager.Instance.GameOver();
+        }
+    }
 
     void Sliding()
     {
@@ -135,9 +165,11 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Obstacles")&& !isInvincible)//장애물과 충돌 & 무적이 아니면 대미지
         {
+
             if (isGod) return;
 
-            currentHp--;
+
+            UpdateHPSlider(1);
             Debug.Log($"장애물 트리거 충돌! 현재 체력: {currentHp}");
 
             if (currentHp <= 0)
