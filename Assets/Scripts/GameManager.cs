@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
 
     private float elapsedTime = 0f;
 
-    public float stageInterval = 10f;
-    public int stage = 1;
+    
+    
     private float eelpasedTime = 0f;
 
     private int currentScore = 0;
@@ -65,16 +65,7 @@ public class GameManager : MonoBehaviour
         // 새로운 음악 재생
         GetComponent<AudioSource>().Play();
     }
-    private void Update()
-    {
-        elapsedTime += Time.deltaTime;
-        if (elapsedTime >= stageInterval)
-        {
-            stage++;
-            elapsedTime = 0f;
-            Debug.Log($"[GameManager] 스테이지{stage}돌파");
-        }
-    }
+    
 
     public void GameOver()
     {
