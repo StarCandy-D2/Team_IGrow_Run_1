@@ -661,7 +661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: f969729683c112b4aa7d552ec8414a88, type: 2}
   invinciblityDuration: 1
-  gravity: -9.8
+  gravity: -24.6
   jumpCount: 0
   jellylevel: 1
   maxHPlevel: 1
