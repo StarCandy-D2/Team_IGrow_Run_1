@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     private float currentRunSpeed;
     public int stage = 0;
     private float elapsedTime = 0f;
+    private KeyCode jumpKey;
+    private KeyCode slideKey;
 
     private int currentHp;
     public int jellylevel = 1;
@@ -78,27 +80,36 @@ public class Player : MonoBehaviour
         Vector2 rayOrigin = transform.position + new Vector3(0, -0.05f, 0);
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, 0.2f, LayerMask.GetMask("Ground"));
         Debug.DrawRay(rayOrigin, Vector2.down * 0.2f, Color.red);
-
         bool isGrounded = (hit.collider != null);
-        bool isSlideKeyHeld = Input.GetMouseButton(1) || Input.GetKey(KeyCode.E);
 
-        if (!isGrounded && isSlideKeyHeld && verticalSpeed < 0)
-        {
-            verticalSpeed = -10f;
-        }
         // 점프 입력
-        if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("Jump")) && jumpCount < 2)
+        if (Input.GetKeyDown(jumpKey) && jumpCount < 2)
         {
             jumpCount++;
             verticalSpeed = jumpPower;
         }
 
+        // 슬라이딩
+        if (Input.GetKey(slideKey))
+        {
+            boxCollider.size = slideSize;
+            boxCollider.offset = slideOffset;
+
+            // 공중에서 슬라이딩 시 급하강 처리
+            if (!isGrounded && verticalSpeed < 0)
+            {
+                verticalSpeed = -10f;
+            }
+        }
+        else
+        {
+            boxCollider.size = originalSize;
+            boxCollider.offset = originalOffset;
+        }
+
         // 이동
         Vector2 move = new Vector2(currentRunSpeed, verticalSpeed);
         transform.Translate(move * Time.deltaTime);
-
-        // 슬라이딩
-        Sliding();
 
         // 스테이지 증가
         elapsedTime += Time.deltaTime;
@@ -125,26 +136,13 @@ public class Player : MonoBehaviour
         currentHp -= amount;
         currentHp = Mathf.Clamp(currentHp, 0, maxHp);
         hpSlider.value = currentHp;
+
         Debug.Log($"장애물 트리거 충돌! 현재 체력: {currentHp}");
 
         if (currentHp <= 0)
         {
             isDead = true;
             GameManager.Instance.GameOver();
-        }
-    }
-
-    void Sliding()
-    {
-        if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.E))
-        {
-            boxCollider.size = slideSize;
-            boxCollider.offset = slideOffset;
-        }
-        else
-        {
-            boxCollider.size = originalSize;
-            boxCollider.offset = originalOffset;
         }
     }
 
