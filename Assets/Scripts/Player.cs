@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,19 +17,24 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpPower = 10f; //점프력 수동구현
     [SerializeField] float BaseRunSpeed;
     [SerializeField] private int maxHp = 5; // 체력
-    [SerializeField] float stageInterval = 10f;     //stage time
+    
     [SerializeField] float speedIncreasePerStage = 0.5f; // increase speed per stage ex)3stage =  +1.5f
     [SerializeField] int jumpCount = 0;
 
     private Vector2 originalSize;
     private Vector2 originalOffset;
     private Vector2 slideSize = new Vector2(1f, 0.5f);
-    private Vector2 slideOffset = new Vector2(0f, 0.25f);
+    private Vector2 slideOffset = new Vector2(0f, -0.25f);
 
     private float verticalSpeed = 0f;
     private float currentRunSpeed;
     public int stage = 0;
-    private float elapsedTime = 0f;
+
+    private KeyCode jumpKey;
+    private KeyCode slideKey;
+
+    private float timeElapsed = 0f;
+
 
     private int currentHp;
     public int jellylevel = 1;
@@ -58,6 +64,13 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        //디버깅용 코드
+        string jumpKeyStr = PlayerPrefs.GetString("JumpKey", "Space");
+        string slideKeyStr = PlayerPrefs.GetString("SlideKey", "LeftShift");
+        //
+        jumpKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("JumpKey", "Space"));
+        slideKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SlideKey", "LeftShift"));
+
         rigid = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         originalSize = boxCollider.size;
@@ -67,6 +80,20 @@ public class Player : MonoBehaviour
         currentHp = maxHp;
         hpSlider.maxValue = maxHp;
         hpSlider.value = currentHp;
+
+        //디버깅용 코드
+        if (!Enum.TryParse(jumpKeyStr, out jumpKey))
+        {
+            Debug.LogWarning($"잘못된 점프 키 [{jumpKeyStr}], 기본값 'Space'로 설정");
+            jumpKey = KeyCode.Space;
+        }
+
+        if (!Enum.TryParse(slideKeyStr, out slideKey))
+        {
+            Debug.LogWarning($"잘못된 슬라이드 키 [{slideKeyStr}], 기본값 'LeftShift'로 설정");
+            slideKey = KeyCode.LeftShift;
+        }
+        //
     }
 
     void Update()
@@ -75,39 +102,49 @@ public class Player : MonoBehaviour
         verticalSpeed += gravity * Time.deltaTime;
 
         // 발 밑 기준으로 Ray 발사
-        Vector2 rayOrigin = transform.position + new Vector3(0, -0.05f, 0);
-        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, 0.2f, LayerMask.GetMask("Ground"));
-        Debug.DrawRay(rayOrigin, Vector2.down * 0.2f, Color.red);
-
+        Vector2 rayOrigin = transform.position + new Vector3(0, 0.01f, 0);
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, 1.3f, LayerMask.GetMask("Ground"));
+        Debug.DrawRay(rayOrigin, Vector2.down * 2f, Color.red);
         bool isGrounded = (hit.collider != null);
-        bool isSlideKeyHeld = Input.GetMouseButton(1) || Input.GetKey(KeyCode.E);
 
-        if (!isGrounded && isSlideKeyHeld && verticalSpeed < 0)
-        {
-            verticalSpeed = -10f;
-        }
         // 점프 입력
-        if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("Jump")) && jumpCount < 2)
+        if (Input.GetKeyDown(jumpKey) && jumpCount < 2)
         {
             jumpCount++;
             verticalSpeed = jumpPower;
+        }
+
+        // 슬라이딩
+        if (Input.GetKey(slideKey))
+        {
+            boxCollider.size = slideSize;
+            boxCollider.offset = slideOffset;
+
+            // 공중에서 슬라이딩 시 급하강 처리
+            if (!isGrounded && verticalSpeed < 0)
+            {
+                verticalSpeed = -10f;
+            }
+        }
+        else
+        {
+            boxCollider.size = originalSize;
+            boxCollider.offset = originalOffset;
         }
 
         // 이동
         Vector2 move = new Vector2(currentRunSpeed, verticalSpeed);
         transform.Translate(move * Time.deltaTime);
 
-        // 슬라이딩
-        Sliding();
-
         // 스테이지 증가
-        elapsedTime += Time.deltaTime;
-        if (elapsedTime >= stageInterval)
+        float interval = GameManager.Instance.stageInterval;
+        int currentStage = GameManager.Instance.stage;
+        timeElapsed += Time.deltaTime;
+        if (timeElapsed >= interval)
         {
-            elapsedTime -= stageInterval;
-            stage++;
-            currentRunSpeed = BaseRunSpeed + stage * speedIncreasePerStage;
+            timeElapsed = 0;
         }
+        currentRunSpeed = BaseRunSpeed + (currentStage - 1) * speedIncreasePerStage;
 
         if (hit.collider != null && verticalSpeed <= 0)
         {
@@ -115,7 +152,7 @@ public class Player : MonoBehaviour
             verticalSpeed = 0f;
 
             Vector3 pos = transform.position;
-            pos.y = hit.point.y + 0.05f;
+            pos.y = hit.point.y + 1.2f;
             transform.position = pos;
         }
     }
@@ -125,26 +162,13 @@ public class Player : MonoBehaviour
         currentHp -= amount;
         currentHp = Mathf.Clamp(currentHp, 0, maxHp);
         hpSlider.value = currentHp;
+
         Debug.Log($"장애물 트리거 충돌! 현재 체력: {currentHp}");
 
         if (currentHp <= 0)
         {
             isDead = true;
             GameManager.Instance.GameOver();
-        }
-    }
-
-    void Sliding()
-    {
-        if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.E))
-        {
-            boxCollider.size = slideSize;
-            boxCollider.offset = slideOffset;
-        }
-        else
-        {
-            boxCollider.size = originalSize;
-            boxCollider.offset = originalOffset;
         }
     }
 
