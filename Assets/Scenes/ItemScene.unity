@@ -2351,6 +2351,14 @@ PrefabInstance:
       value: SilverCoin
       objectReference: {fileID: 0}
     - target: {fileID: 9132679758966877922, guid: e2ba60e4fd4670d489266cdfaf5fb5d0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132679758966877922, guid: e2ba60e4fd4670d489266cdfaf5fb5d0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132679758966877922, guid: e2ba60e4fd4670d489266cdfaf5fb5d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.3903
       objectReference: {fileID: 0}
