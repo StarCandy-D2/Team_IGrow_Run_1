@@ -16,6 +16,8 @@ public class SettingsManager : MonoBehaviour
     public TMP_InputField slideKeyInputField;
 
     private AudioSource bgmSource;
+    private bool isEditingJump = false;
+private bool isEditingSlide = false;
 
     void Start()
     {
@@ -24,30 +26,20 @@ public class SettingsManager : MonoBehaviour
         volumeSlider.maxValue = 100f;
         volumeSlider.wholeNumbers = true;
 
-        // 초기화
         float savedVolume = PlayerPrefs.GetFloat("BGMVolume", 100f);
-
-        //0~1 범위의 잘못 저장된 값이면 → 0~100 기준으로 변환
-        if (savedVolume <= 1f)
-        {
-            savedVolume *= 100f;
-        }
-
         volumeSlider.value = savedVolume;
         volumeInputField.text = savedVolume.ToString("0") + "%";
-        volumeSlider.onValueChanged.AddListener(OnSliderChanged);
-        volumeInputField.onEndEdit.AddListener(OnVolumeInputChanged);
+
         bgmSource = FindObjectOfType<BGMPlayer>()?.GetComponent<AudioSource>();
         if (bgmSource != null)
         {
             bgmSource.volume = savedVolume / 100f;
         }
 
-        jumpKeyInputField.text = PlayerPrefs.GetString("JumpKey", "Space");
-        slideKeyInputField.text = PlayerPrefs.GetString("SlideKey", "LeftShift");
-        jumpKeyInputField.onEndEdit.AddListener(OnJumpKeyChanged);
-        slideKeyInputField.onEndEdit.AddListener(OnSlideKeyChanged);
+        volumeSlider.onValueChanged.AddListener(OnSliderChanged);
+        volumeInputField.onEndEdit.AddListener(OnVolumeInputChanged);
     }
+
 
     public void OnSliderChanged(float value)
     {
@@ -67,49 +59,7 @@ public class SettingsManager : MonoBehaviour
         }
 
     }
-    private void OnJumpKeyChanged(string value)
-    {
-        value = value.ToUpper();
-        Debug.Log("JumpKey 저장됨: " + value);
-        if (Enum.TryParse(value, out KeyCode result))
-        {
-            PlayerPrefs.SetString("JumpKey", value);
-            PlayerPrefs.Save();
-        }
-        else
-        {
-            Debug.LogWarning($"입력한 키 [{value}]는 유효하지 않습니다.");
-            // 예: 메시지로 사용자에게 경고하거나 기본값 설정
-        }
-    }
 
-    private void OnSlideKeyChanged(string value)
-    {
-        value = value.ToUpper();
-
-        if (Enum.TryParse(value, out KeyCode parsedKey))
-        {
-            PlayerPrefs.SetString("SlideKey", value);
-            PlayerPrefs.Save();
-            Debug.Log($"슬라이드 키 저장됨: {parsedKey}");
-        }
-        else
-        {
-            Debug.LogWarning($"입력된 키 [{value}]는 유효하지 않습니다.");
-        }
-    }
-    public void SaveKeyBindings()
-    {
-        PlayerPrefs.SetString("JumpKey", jumpKeyInputField.text);
-        PlayerPrefs.SetString("SlideKey", slideKeyInputField.text);
-        PlayerPrefs.Save();
-    }
-    public void OnSettingChanged()
-    {
-        SaveKeyBindings();
-        PlayerPrefs.SetFloat("BGMVolume", volumeSlider.value);
-        PlayerPrefs.Save();
-    }
     public void BacktoMain()
     {
         SceneManager.LoadScene("StartUIScene");
