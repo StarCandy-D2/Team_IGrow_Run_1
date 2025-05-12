@@ -120,14 +120,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void UpdateHPSlider(int amount) // 체력바 조절
+    public void UpdateHPSlider(int amount)
     {
         currentHp -= amount;
         currentHp = Mathf.Clamp(currentHp, 0, maxHp);
         hpSlider.value = currentHp;
+        Debug.Log($"장애물 트리거 충돌! 현재 체력: {currentHp}");
 
         if (currentHp <= 0)
         {
+            isDead = true;
             GameManager.Instance.GameOver();
         }
     }
@@ -161,21 +163,12 @@ public class Player : MonoBehaviour
     {
         Debug.Log("트리거 충돌 감지: " + other.gameObject.name);
 
-        if (other.CompareTag("Obstacles")&& !isInvincible)//장애물과 충돌 & 무적이 아니면 대미지
+        if (other.CompareTag("Obstacles") && !isInvincible)
         {
-            UpdateHPSlider(1);
             if (isGod) return;
 
-
-            UpdateHPSlider(1);
-            Debug.Log($"장애물 트리거 충돌! 현재 체력: {currentHp}");
-
-            if (currentHp <= 0)
-            {
-                isDead = true;
-                GameManager.Instance.GameOver();
-            }
-            StartCoroutine(InvinciblityCoroutine());
+            UpdateHPSlider(1);          // 체력 깎기
+            StartCoroutine(InvinciblityCoroutine());  // 무적 시작
         }
     }
     private IEnumerator InvinciblityCoroutine()
