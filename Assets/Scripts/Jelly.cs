@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class Jelly : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private List<Sprite> jellyLevelSprites;
+
+
     public Animator animator;
     int score = 0;
     bool hasEaten = false;
@@ -14,7 +18,9 @@ public class Jelly : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        var player = FindObjectOfType<Player>();
+        int lvl = Mathf.Clamp(player.jellylevel, 1, jellyLevelSprites.Count);
+        spriteRenderer.sprite = jellyLevelSprites[lvl - 1];
     }
 
     // Update is called once per frame

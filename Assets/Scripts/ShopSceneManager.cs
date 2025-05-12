@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ShopSceneManager : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class ShopSceneManager : MonoBehaviour
     public TextMeshProUGUI lifeitemtooltiptxt;
     public TextMeshProUGUI otheritemtooltiptxt;
     public TextMeshProUGUI recentCoin;
+    [Header("Jelly Level UI")]
+    [SerializeField] private Image jellyLevelImage;
+    [SerializeField] private List<Sprite> jellyLevelSprites;
 
     public int jellyprice = 1;
     public int maxHPprice = 1;
@@ -34,6 +38,8 @@ public class ShopSceneManager : MonoBehaviour
     public int calcurateconst1 = 5;
     public int calcurateconst2 = 5;
     public Player player;
+
+   
     int GetUpgradeCost(int level)
     {
         return 100 * level * level + 900;
@@ -157,9 +163,16 @@ public class ShopSceneManager : MonoBehaviour
         lifetext.text = $"Price: {GetUpgradeCost(player.lifelevel)}";
         othertext.text = $"Price: {GetUpgradeCost(player.otherlevel)}";
     }
+    private void UpdateJellyLevelImage()
+    {
+        int lvl = Mathf.Clamp(player.jellylevel, 1, jellyLevelSprites.Count);
+        jellyLevelImage.sprite = jellyLevelSprites[lvl - 1];
+    }
+   
     void Start()
     {
         UpdateUpgradePriceUI();
         UpdateCoinUI();
+        UpdateJellyLevelImage();
     }
 }

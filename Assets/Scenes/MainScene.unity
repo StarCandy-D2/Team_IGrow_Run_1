@@ -131,29 +131,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1963045868}
     m_Modifications:
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_Name
       value: Jelly (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -677,29 +657,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1963045868}
     m_Modifications:
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_Name
       value: Jelly (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1291,29 +1251,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1963045868}
     m_Modifications:
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_Name
       value: Jelly (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1522,29 +1462,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1963045868}
     m_Modifications:
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_Name
       value: Jelly (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2250,29 +2170,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1963045868}
     m_Modifications:
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_Name
       value: Jelly (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2484,29 +2384,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1963045868}
     m_Modifications:
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_Name
       value: Jelly (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2635,29 +2515,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1963045868}
     m_Modifications:
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_Name
       value: Jelly
-      objectReference: {fileID: 0}
-    - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2777,6 +2637,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6423899862872721515, guid: 4cea2a0f5658b06458614188d8db3cc8, type: 3}
   m_PrefabInstance: {fileID: 1270529811}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1280312611 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2256804667610647085, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+  m_PrefabInstance: {fileID: 1534930209}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1289424727
 PrefabInstance:
@@ -3072,29 +2937,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1963045868}
     m_Modifications:
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_Name
       value: Jelly (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3181,29 +3026,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1963045868}
     m_Modifications:
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4712968629904791772, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 1527466644622738124, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1280312611}
     - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_Name
       value: Jelly (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7415296827623222344, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}
       propertyPath: m_LocalPosition.x
