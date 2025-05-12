@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     private int currentScore = 0;
     private int bestscore = 0;
+    private float playTime = 0f;
+    private bool isGameRunning = true;
     UIManager uiManager;
     ScoreManager scoreManager;
     ShopSceneManager shopSceneManager;
@@ -31,6 +33,14 @@ public class GameManager : MonoBehaviour
     {
         gameManager = this;
         uiManager = FindObjectOfType<UIManager>();
+    }
+    void Update()
+    {
+        if (isGameRunning)
+        {
+            playTime += Time.deltaTime;
+            UIManager.UpdatePlaytime(playTime); // 실시간으로 반영
+        }
     }
 
     private void Start()
@@ -56,6 +66,9 @@ public class GameManager : MonoBehaviour
         ScoreManager.SaveScore(currentScore);
         PlayerPrefs.SetInt("LastScore", currentScore); // 대기화면에 띄울 점수 저장
         uiManager.SetRestart();
+        isGameRunning = false;
+        UIManager.SetRestart(); // 사망 시 재시작 UI 표시
+        UIManager.UpdatePlaytime(playTime); // 종료 시 최종 시간 표시
     }
 
     public void RestartGame()
