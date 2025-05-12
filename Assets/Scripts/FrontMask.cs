@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FrontMask : MonoBehaviour
 {
-    int count = 0;
+    int count = 1;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Block")
