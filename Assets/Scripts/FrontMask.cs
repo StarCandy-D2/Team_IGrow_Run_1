@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class FrontMask : MonoBehaviour
 {
+    [SerializeField] TutorialManager tutorialManager;
     int count = 0;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Block")
+        if (collision.tag == "Block" && !tutorialManager.isFirstRun)
         {
             count++;
             if (count == 2)
