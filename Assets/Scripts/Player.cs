@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpPower = 10f; //점프력 수동구현
     [SerializeField] float BaseRunSpeed;
     [SerializeField] private int maxHp = 5; // 체력
-    [SerializeField] float stageInterval = 10f;     //stage time
+    
     [SerializeField] float speedIncreasePerStage = 0.5f; // increase speed per stage ex)3stage =  +1.5f
     [SerializeField] int jumpCount = 0;
 
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     private float verticalSpeed = 0f;
     private float currentRunSpeed;
     public int stage = 0;
-    private float elapsedTime = 0f;
+    private float timeElapsed = 0f;
 
     private int currentHp;
     public int jellylevel = 1;
@@ -101,13 +101,14 @@ public class Player : MonoBehaviour
         Sliding();
 
         // 스테이지 증가
-        elapsedTime += Time.deltaTime;
-        if (elapsedTime >= stageInterval)
+        float interval = GameManager.Instance.stageInterval;
+        int currentStage = GameManager.Instance.stage;
+        timeElapsed += Time.deltaTime;
+        if (timeElapsed >= interval)
         {
-            elapsedTime -= stageInterval;
-            stage++;
-            currentRunSpeed = BaseRunSpeed + stage * speedIncreasePerStage;
+            timeElapsed = 0;
         }
+        currentRunSpeed = BaseRunSpeed + (currentStage - 1) * speedIncreasePerStage;
 
         if (hit.collider != null && verticalSpeed <= 0)
         {

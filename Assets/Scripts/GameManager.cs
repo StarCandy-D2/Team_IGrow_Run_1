@@ -12,12 +12,16 @@ public class GameManager : MonoBehaviour
         get { return gameManager; }
     }
 
+    public float stageInterval = 10f;
+    public int stage = 1;
+    private float eelpasedTime = 0f;
+
     private int currentScore = 0;
     private int bestscore = 0;
     UIManager uiManager;
     ScoreManager scoreManager;
     ShopSceneManager shopSceneManager;
-    public int stage = 1;
+    
 
     public UIManager UIManager
     {
