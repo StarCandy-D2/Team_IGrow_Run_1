@@ -1454,7 +1454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &576480056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1781,6 +1781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab91d3e6a9a3fd3469da8b4e85b766c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialManager: {fileID: 1537170432}
 --- !u!61 &752155863
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2055,6 +2056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685eb2f1aa87056449e03e4573282fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialManager: {fileID: 1537170432}
 --- !u!114 &1161690916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2068,7 +2070,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GroundPrefeb: {fileID: 3667662769688481623, guid: 08bc03e722d233543aa1aeffda4417fa, type: 3}
-  PlatformPrefeb: {fileID: 576480055}
+
+  PlatformPrefeb: {fileID: 3667662769688481623, guid: a94d1ccb8f7af8a4eb957320442d41df, type: 3}
+
   JumpObstaclePrefeb: {fileID: 865084180058006958, guid: a47f6ed18d01d1a48abae27bc76572be, type: 3}
   DoubleJumpObstaclePrefeb: {fileID: 5174665195977750102, guid: 716e908b5bfbb6444891884df9aa54c0, type: 3}
   SlideObstaclePrefeb: {fileID: 7529857571837634547, guid: 4cea2a0f5658b06458614188d8db3cc8, type: 3}
@@ -2614,6 +2618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1537170431}
   - component: {fileID: 1537170430}
+  - component: {fileID: 1537170432}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2650,6 +2655,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1537170432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537170429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03aa183e03467a545a20eb79d51d281c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 145478264}
+  isFirstRun: 1
+  isTutorialEnd: 0
 --- !u!1 &1564870983
 GameObject:
   m_ObjectHideFlags: 0
