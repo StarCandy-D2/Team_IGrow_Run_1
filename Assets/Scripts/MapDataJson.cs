@@ -31,7 +31,7 @@ public class MapDataJson : MonoBehaviour
     Vector2[] doubleJumpObstacleVec;
     Vector2[] slideObstacleVec;
 
-    int mapCode = -1;
+    public int mapCode = -1;
     int stageCode;
     private void Start()
     {
@@ -151,13 +151,13 @@ public class MapDataJson : MonoBehaviour
 
     int GetRandomCode(int iNum)
     {
-        if(stageCode == 0)
+        if(stageCode == 0)  //튜토리얼의 경우
         {
             iNum++;
             if(iNum == 2)
             {
                 tutorialManager.isFirstRun = false;
-                tutorialManager.isTutorialEnd = true;
+                //tutorialManager.isTutorialEnd = true;
             }
             return iNum;
         }
