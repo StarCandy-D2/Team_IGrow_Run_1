@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class SettingsManager : MonoBehaviour
 {
@@ -44,6 +45,8 @@ public class SettingsManager : MonoBehaviour
 
         jumpKeyInputField.text = PlayerPrefs.GetString("JumpKey", "Space");
         slideKeyInputField.text = PlayerPrefs.GetString("SlideKey", "LeftShift");
+        jumpKeyInputField.onEndEdit.AddListener(OnJumpKeyChanged);
+        slideKeyInputField.onEndEdit.AddListener(OnSlideKeyChanged);
     }
 
     public void OnSliderChanged(float value)
@@ -51,6 +54,7 @@ public class SettingsManager : MonoBehaviour
         bgmSource.volume = value / 100f;
         volumeInputField.text = value.ToString("0") + "%";
         PlayerPrefs.SetFloat("BGMVolume", value);
+        PlayerPrefs.Save();
     }
 
     public void OnVolumeInputChanged(string value)
@@ -61,8 +65,39 @@ public class SettingsManager : MonoBehaviour
             result = Mathf.Clamp(result, 0f, 100f);
             volumeSlider.value = result;
         }
+
+    }
+    private void OnJumpKeyChanged(string value)
+    {
+        value = value.ToUpper();
+        Debug.Log("JumpKey 저장됨: " + value);
+        if (Enum.TryParse(value, out KeyCode result))
+        {
+            PlayerPrefs.SetString("JumpKey", value);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            Debug.LogWarning($"입력한 키 [{value}]는 유효하지 않습니다.");
+            // 예: 메시지로 사용자에게 경고하거나 기본값 설정
+        }
     }
 
+    private void OnSlideKeyChanged(string value)
+    {
+        value = value.ToUpper();
+
+        if (Enum.TryParse(value, out KeyCode parsedKey))
+        {
+            PlayerPrefs.SetString("SlideKey", value);
+            PlayerPrefs.Save();
+            Debug.Log($"슬라이드 키 저장됨: {parsedKey}");
+        }
+        else
+        {
+            Debug.LogWarning($"입력된 키 [{value}]는 유효하지 않습니다.");
+        }
+    }
     public void SaveKeyBindings()
     {
         PlayerPrefs.SetString("JumpKey", jumpKeyInputField.text);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -63,6 +64,10 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        //디버깅용 코드
+        string jumpKeyStr = PlayerPrefs.GetString("JumpKey", "Space");
+        string slideKeyStr = PlayerPrefs.GetString("SlideKey", "LeftShift");
+        //
         jumpKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("JumpKey", "Space"));
         slideKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SlideKey", "LeftShift"));
 
@@ -75,6 +80,20 @@ public class Player : MonoBehaviour
         currentHp = maxHp;
         hpSlider.maxValue = maxHp;
         hpSlider.value = currentHp;
+
+        //디버깅용 코드
+        if (!Enum.TryParse(jumpKeyStr, out jumpKey))
+        {
+            Debug.LogWarning($"잘못된 점프 키 [{jumpKeyStr}], 기본값 'Space'로 설정");
+            jumpKey = KeyCode.Space;
+        }
+
+        if (!Enum.TryParse(slideKeyStr, out slideKey))
+        {
+            Debug.LogWarning($"잘못된 슬라이드 키 [{slideKeyStr}], 기본값 'LeftShift'로 설정");
+            slideKey = KeyCode.LeftShift;
+        }
+        //
     }
 
     void Update()
