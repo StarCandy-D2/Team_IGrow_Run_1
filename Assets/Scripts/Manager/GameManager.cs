@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    static GameManager gameManager;
+    public static GameManager Instance { get; private set; }  
+    [Header("스테이지 설정")]
+    public float stageInterval = 10f;
+    public int stage = 1;
 
-    public static GameManager Instance
-    {
-        get { return gameManager; }
-    }
+    private float elapsedTime = 0f;
 
     private int currentScore = 0;
     private int bestscore = 0;
     UIManager uiManager;
     ScoreManager scoreManager;
     ShopSceneManager shopSceneManager;
-    public int stage = 1;
+    
 
     public UIManager UIManager
     {
@@ -25,7 +26,12 @@ public class GameManager : MonoBehaviour
     }
     private void Awake()
     {
-        gameManager = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else Destroy(gameObject);
         uiManager = FindObjectOfType<UIManager>();
     }
 
@@ -35,6 +41,16 @@ public class GameManager : MonoBehaviour
         uiManager.UpdateScore(0);
         uiManager.UpdateBestScore(PlayerPrefs.GetInt("Score_0", 0));
         uiManager.UpdateBigBestScore(PlayerPrefs.GetInt("Score_0", 0));
+    }
+    private void Update()
+    {
+        elapsedTime += Time.deltaTime;
+        if (elapsedTime >= stageInterval)
+        {
+            stage++;
+            elapsedTime = 0f;
+            Debug.Log($"[GameManager] 스테이지{stage}돌파");
+        }
     }
 
     public void GameOver()
