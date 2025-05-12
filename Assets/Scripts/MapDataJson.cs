@@ -12,18 +12,20 @@ public class MapDataJson : MonoBehaviour
     {
         public string Stage { get; private set; }
         public float[] Ground { get; private set; }
+        public Vector2[] Platform { get; private set; }
         public float[] JumpObstacle { get; private set; }
         public float[] DoubleJumpObstacle { get; private set; }
         public float[] SlideObstacle { get; private set; }
-        public PrefebsStruct(string stage, float[] ground, float[] jumpObstacle, float[] doubleJumpObstacle, float[] slideObstacle)
+        public PrefebsStruct(string stage, float[] ground, Vector2[] platform, float[] jumpObstacle, float[] doubleJumpObstacle, float[] slideObstacle)
         {
-            Stage = stage; Ground = ground; JumpObstacle = jumpObstacle; DoubleJumpObstacle = doubleJumpObstacle; SlideObstacle = slideObstacle;
+            Stage = stage; Ground = ground; Platform = platform; JumpObstacle = jumpObstacle; DoubleJumpObstacle = doubleJumpObstacle; SlideObstacle = slideObstacle;
         }
     }
 
-    PrefebsStruct[] prefebsStruct;
+    PrefebsStruct[][] prefebsStruct;
 
     Vector2[] GroundVec;
+    Vector2[] PlatformVec;
     Vector2[] jumpObstacleVec;
     Vector2[] doubleJumpObstacleVec;
     Vector2[] slideObstacleVec;
@@ -33,71 +35,104 @@ public class MapDataJson : MonoBehaviour
     private void Start()
     {
         string jsonString = Resources.Load("MapData").ToString();
-        prefebsStruct = JsonConvert.DeserializeObject<PrefebsStruct[]>(jsonString);
+        prefebsStruct = JsonConvert.DeserializeObject<PrefebsStruct[][]>(jsonString);
 
         GetCode();
     }
     public void GetCode()
     {
         mapCode = GetRandomCode();
-        stageCode = GameManager.Instance.stage -1;
+        stageCode = Mathf.Clamp(GameManager.Instance.stage - 1, 0, 2);
 
         GetGroundCode();
+        GetPlatformCode();
         GetJumpObstacleCode();
         GetDoubleJumpObstaclCode();
         GetSlideObstacleCode();
     }
     void GetGroundCode()
     {
-        if (prefebsStruct[mapCode].Ground != null)
+        if (prefebsStruct[stageCode][mapCode].Ground != null)
         {
-            GroundVec = new Vector2[prefebsStruct[mapCode].Ground.Length];
-            for (int i = 0; i < prefebsStruct[mapCode].Ground.Length; i++)
+            GroundVec = new Vector2[prefebsStruct[stageCode][mapCode].Ground.Length];
+            for (int i = 0; i < prefebsStruct[stageCode][mapCode].Ground.Length; i++)
             {
-                GroundVec[i] = new Vector2(prefebsStruct[mapCode].Ground[i], 0f);
+                GroundVec[i] = new Vector2(prefebsStruct[stageCode][mapCode].Ground[i], 0f);
             }
+        }
+        else if (prefebsStruct[stageCode][mapCode].Ground == null)
+        {
+            GroundVec = null;
+        }
+    }
+    void GetPlatformCode()
+    {
+        if (prefebsStruct[stageCode][mapCode].Platform != null)
+        {
+            PlatformVec = prefebsStruct[stageCode][mapCode].Platform;
+        }
+        else if (prefebsStruct[stageCode][mapCode].Platform == null)
+        {
+            PlatformVec = null;
         }
     }
 
     void GetJumpObstacleCode()
     {
-        if (prefebsStruct[mapCode].JumpObstacle != null)
+        if (prefebsStruct[stageCode][mapCode].JumpObstacle != null)
         {
-            jumpObstacleVec = new Vector2[prefebsStruct[mapCode].JumpObstacle.Length];
-            for (int i = 0; i < prefebsStruct[mapCode].JumpObstacle.Length; i++)
+            jumpObstacleVec = new Vector2[prefebsStruct[stageCode][mapCode].JumpObstacle.Length];
+            for (int i = 0; i < prefebsStruct[stageCode][mapCode].JumpObstacle.Length; i++)
             {
-                jumpObstacleVec[i] = new Vector2(prefebsStruct[mapCode].JumpObstacle[i], 1f);
+                jumpObstacleVec[i] = new Vector2(prefebsStruct[stageCode][mapCode].JumpObstacle[i], 1f);
             }
         }
+        else if (prefebsStruct[stageCode][mapCode].JumpObstacle == null)
+        {
+            jumpObstacleVec = null;
+        }
+
     }
 
     void GetDoubleJumpObstaclCode()
-    {       
-        if (prefebsStruct[mapCode].DoubleJumpObstacle != null)
+    {
+        if (prefebsStruct[stageCode][mapCode].DoubleJumpObstacle != null)
         {
-            doubleJumpObstacleVec = new Vector2[prefebsStruct[mapCode].DoubleJumpObstacle.Length];
-            for (int i = 0; i < prefebsStruct[mapCode].DoubleJumpObstacle.Length; i++)
+            doubleJumpObstacleVec = new Vector2[prefebsStruct[stageCode][mapCode].DoubleJumpObstacle.Length];
+            for (int i = 0; i < prefebsStruct[stageCode][mapCode].DoubleJumpObstacle.Length; i++)
             {
-                doubleJumpObstacleVec[i] = new Vector2(prefebsStruct[mapCode].DoubleJumpObstacle[i], 1.5f);
+                doubleJumpObstacleVec[i] = new Vector2(prefebsStruct[stageCode][mapCode].DoubleJumpObstacle[i], 1.5f);
             }
+        }
+        else if (prefebsStruct[stageCode][mapCode].DoubleJumpObstacle == null)
+        {
+            doubleJumpObstacleVec = null;
         }
     }
 
     void GetSlideObstacleCode()
     {
-        if (prefebsStruct[mapCode].SlideObstacle != null)
+        if (prefebsStruct[stageCode][mapCode].SlideObstacle != null)
         {
-            slideObstacleVec = new Vector2[prefebsStruct[mapCode].SlideObstacle.Length];
-            for (int i = 0; i < prefebsStruct[mapCode].SlideObstacle.Length; i++)
+            slideObstacleVec = new Vector2[prefebsStruct[stageCode][mapCode].SlideObstacle.Length];
+            for (int i = 0; i < prefebsStruct[stageCode][mapCode].SlideObstacle.Length; i++)
             {
-                slideObstacleVec[i] = new Vector2(prefebsStruct[mapCode].SlideObstacle[i], 4.9f);
+                slideObstacleVec[i] = new Vector2(prefebsStruct[stageCode][mapCode].SlideObstacle[i], 4.9f);
             }
+        }
+        else if (prefebsStruct[stageCode][mapCode].SlideObstacle == null)
+        {
+            slideObstacleVec = null;
         }
     }
 
     public Vector2[] ReturnGroundCode()
     {
         return GroundVec;
+    }
+    public Vector2[] ReturnPlatformCode()
+    {
+        return PlatformVec;
     }
     public Vector2[] ReturnObstacle1Code()
     {
@@ -114,7 +149,7 @@ public class MapDataJson : MonoBehaviour
 
     int GetRandomCode()
     {
-        int code = UnityEngine.Random.Range(0, prefebsStruct.Length);
+        int code = UnityEngine.Random.Range(0, prefebsStruct[stageCode].Length);
         return code;
     }
 }
