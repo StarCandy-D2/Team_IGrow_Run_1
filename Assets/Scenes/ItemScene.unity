@@ -2213,6 +2213,14 @@ PrefabInstance:
       value: GoldCoin
       objectReference: {fileID: 0}
     - target: {fileID: 3197364245891067593, guid: aeccc335091ae774cae9243608aef5a2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197364245891067593, guid: aeccc335091ae774cae9243608aef5a2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197364245891067593, guid: aeccc335091ae774cae9243608aef5a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.3766
       objectReference: {fileID: 0}
@@ -2251,6 +2259,18 @@ PrefabInstance:
     - target: {fileID: 3197364245891067593, guid: aeccc335091ae774cae9243608aef5a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826918264781301313, guid: aeccc335091ae774cae9243608aef5a2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826918264781301313, guid: aeccc335091ae774cae9243608aef5a2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826918264781301313, guid: aeccc335091ae774cae9243608aef5a2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
