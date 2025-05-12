@@ -4,7 +4,7 @@ using UnityEngine;
 using static MapDataJson;
 
 public class PrefebManager : MonoBehaviour
-{
+{    
     [SerializeField] GameObject GroundPrefeb;
     [SerializeField] GameObject PlatformPrefeb;
     [SerializeField] GameObject JumpObstaclePrefeb;
