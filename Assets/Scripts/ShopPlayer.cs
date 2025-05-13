@@ -47,13 +47,13 @@ public class ShopPlayer : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // MainScene에서는 비활성화
-        if (scene.name == "MainScene")
+        if (scene.name == "ShopScene")
         {
-            gameObject.SetActive(false);  // 화면에서 숨김
+            gameObject.SetActive(true);  // shop씬에서 보이게
         }
         else
         {
-            gameObject.SetActive(true);   // ShopScene 등에서는 다시 보이게
+            gameObject.SetActive(false);   // 나머지에서 감춤
         }
     }
 }
