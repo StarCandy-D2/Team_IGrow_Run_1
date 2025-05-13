@@ -2310,7 +2310,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1005080698}
   - component: {fileID: 1005080697}
-  - component: {fileID: 1005080694}
   - component: {fileID: 1005080699}
   m_Layer: 0
   m_Name: Player
@@ -2319,34 +2318,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1005080694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1005080693}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521c5cd28b0e7e646b51d3dee98bba2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  invinciblityDuration: 1
-  gravity: -9.8
-  jumpPower: 5
-  BaseRunSpeed: 0
-  maxHp: 6
-  speedIncreasePerStage: 0.5
-  jumpCount: 0
-  stage: 0
-  jellylevel: 1
-  maxHPlevel: 1
-  otherlevel: 1
-  lifelevel: 1
-  hpSlider: {fileID: 0}
-  coins: 0
-  isDead: 0
-  isGod: 0
 --- !u!212 &1005080697
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3870,7 +3841,7 @@ MonoBehaviour:
   otherprice: 1
   calcurateconst1: 5
   calcurateconst2: 5
-  player: {fileID: 1005080694}
+  player: {fileID: 0}
 --- !u!1 &1910767644
 GameObject:
   m_ObjectHideFlags: 0
