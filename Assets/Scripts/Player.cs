@@ -77,7 +77,16 @@ public class Player : MonoBehaviour
         originalOffset = boxCollider.offset;
         currentRunSpeed = BaseRunSpeed;
 
-        currentHp = maxHp;
+        if (ShopPlayer.Instance != null)
+        {
+            jellylevel = ShopPlayer.Instance.jellyLevel;
+            maxHPlevel = ShopPlayer.Instance.maxHPLevel;
+            coins = ShopPlayer.Instance.coins;
+
+            maxHp = ShopPlayer.Instance.GetMaxHP();
+            currentHp = maxHp;
+        }
+
         hpSlider.maxValue = maxHp;
         hpSlider.value = currentHp;
 
