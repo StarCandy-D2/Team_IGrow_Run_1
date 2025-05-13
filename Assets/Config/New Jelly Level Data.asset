@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb45bcad095b8d409b567be95a6aa13, type: 3}
+  m_Name: New Jelly Level Data
+  m_EditorClassIdentifier: 
+  levelSprites:
+  - {fileID: 21300000, guid: c9a122c34dec9ff469002a7b42199c8c, type: 3}
+  - {fileID: 21300000, guid: 798adcd289f226f47b8eea054c1e8618, type: 3}
+  - {fileID: 21300000, guid: d9a1fd110d8f8724685ad8b665eb900e, type: 3}
+  - {fileID: 21300000, guid: 50118bd01ed14f447a1255c0299d6e81, type: 3}
+  - {fileID: 21300000, guid: 34f45b81faf192f4db146f64344c8a21, type: 3}
+  - {fileID: 21300000, guid: 81ade157eb9030d419a4f0bc799d301f, type: 3}
+  - {fileID: 21300000, guid: c29bcd9601d352241952af87a25c1722, type: 3}
+  - {fileID: 21300000, guid: 7b05c6cd5fe9d7e4092ee8fd62441d8b, type: 3}
