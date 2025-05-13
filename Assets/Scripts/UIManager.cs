@@ -16,8 +16,6 @@ public class UIManager : MonoBehaviour
     public Button backToMainButton;
     public TextMeshProUGUI BigScoreText;
     public TextMeshProUGUI BigBestScore;
-    public TextMeshProUGUI playtimetext;
-    float playtime = 0f;
     public void Start()
     {
         if (restartPanel == null)
@@ -86,12 +84,10 @@ public class UIManager : MonoBehaviour
         if (BestScore != null)
         BigBestScore.text = "Best Score  " + bestscore.ToString();
     }
-    public void UpdatePlaytime(float playtime)
-    {
-        playtimetext.text = $"Play Time  {playtime.ToString("N2")}";
-    }
     public void ReturnToMainScene()
     {
         SceneManager.LoadScene("StartUIScene"); // 메인씬 이름 정확히!
     }
+
+
 }

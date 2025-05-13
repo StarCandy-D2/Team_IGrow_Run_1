@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     private Vector2 originalSize;
     private Vector2 originalOffset;
     private Vector2 slideSize = new Vector2(1f, 0.5f);
-    private Vector2 slideOffset = new Vector2(0f, 0.25f);
+    private Vector2 slideOffset = new Vector2(0f, -0.25f);
 
     private float verticalSpeed = 0f;
     private float currentRunSpeed;
@@ -102,9 +102,9 @@ public class Player : MonoBehaviour
         verticalSpeed += gravity * Time.deltaTime;
 
         // 발 밑 기준으로 Ray 발사
-        Vector2 rayOrigin = transform.position + new Vector3(0, -0.05f, 0);
-        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, 0.2f, LayerMask.GetMask("Ground"));
-        Debug.DrawRay(rayOrigin, Vector2.down * 0.2f, Color.red);
+        Vector2 rayOrigin = transform.position + new Vector3(0, 0.01f, 0);
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, 1.3f, LayerMask.GetMask("Ground"));
+        Debug.DrawRay(rayOrigin, Vector2.down * 2f, Color.red);
         bool isGrounded = (hit.collider != null);
 
         // 점프 입력
@@ -152,7 +152,7 @@ public class Player : MonoBehaviour
             verticalSpeed = 0f;
 
             Vector3 pos = transform.position;
-            pos.y = hit.point.y + 0.05f;
+            pos.y = hit.point.y + 1.2f;
             transform.position = pos;
         }
     }

@@ -8,6 +8,7 @@ using JetBrains.Annotations;
 
 public class MapDataJson : MonoBehaviour
 {
+    [SerializeField] TutorialManager tutorialManager;
     public struct PrefebsStruct
     {
         public string Stage { get; private set; }
@@ -30,7 +31,7 @@ public class MapDataJson : MonoBehaviour
     Vector2[] doubleJumpObstacleVec;
     Vector2[] slideObstacleVec;
 
-    int mapCode;
+    public int mapCode = -1;
     int stageCode;
     private void Start()
     {
@@ -41,9 +42,10 @@ public class MapDataJson : MonoBehaviour
     }
     public void GetCode()
     {
-        mapCode = GetRandomCode();
-        stageCode = Mathf.Clamp(GameManager.Instance.stage - 1, 0, 2);
-
+        stageCode = tutorialManager.isFirstRun ? 0 : Mathf.Clamp(GameManager.Instance.stage, 1, 3);
+        mapCode = GetRandomCode(mapCode);
+        
+        //stageCode = Mathf.Clamp(GameManager.Instance.stage-1, 0, 2);
         GetGroundCode();
         GetPlatformCode();
         GetJumpObstacleCode();
@@ -147,9 +149,22 @@ public class MapDataJson : MonoBehaviour
         return slideObstacleVec;
     }
 
-    int GetRandomCode()
+    int GetRandomCode(int iNum)
     {
-        int code = UnityEngine.Random.Range(0, prefebsStruct[stageCode].Length);
-        return code;
+        if(stageCode == 0)  //튜토리얼의 경우
+        {
+            iNum++;
+            if(iNum == 2)
+            {
+                tutorialManager.isFirstRun = false;
+                //tutorialManager.isTutorialEnd = true;
+            }
+            return iNum;
+        }
+        else
+        {
+            int code = UnityEngine.Random.Range(0, prefebsStruct[stageCode].Length);
+            return code;
+        }            
     }
 }

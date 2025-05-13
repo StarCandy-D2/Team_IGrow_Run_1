@@ -18,10 +18,5 @@ public class BGMPlayer : MonoBehaviour
             Destroy(gameObject); // 중복 방지
         }
     }
-    void OnEnable()
-    {
-        float savedVolume = PlayerPrefs.GetFloat("BGMVolume", 100f);
-        GetComponent<AudioSource>().volume = savedVolume / 100f;
-    }
 }
 
