@@ -33,7 +33,6 @@ public class ShopSceneManager : MonoBehaviour
 
     public int calcurateconst1 = 5;
     public int calcurateconst2 = 5;
-    public Player player;
     int GetUpgradeCost(int level)
     {
         return 100 * level * level + 900;
@@ -89,58 +88,49 @@ public class ShopSceneManager : MonoBehaviour
 
     public void UpgradeJelly()
     {
-        if (ShopPlayer.Instance.TryUpgrade(ref ShopPlayer.Instance.jellyLevel))
+        int cost = ShopPlayer.Instance.GetUpgradeCost(ShopPlayer.Instance.jellyLevel);
+        if (ShopPlayer.Instance.coins >= cost)
         {
+            ShopPlayer.Instance.coins -= cost;
+            ShopPlayer.Instance.jellyLevel++;
             Debug.Log("젤리 업그레이드!");
+            UpdateCoinUI();
+            UpdateUpgradePriceUI();
+        }
+        else
+        {
+            Debug.Log("코인이 부족합니다.");
+        }
+    }
+    public void UpgradeMaxHP()
+    {
+        if (ShopPlayer.Instance.TryUpgrade(ref ShopPlayer.Instance.maxHPLevel))
+        {
+            Debug.Log("체력 업그레이드!");
         }
         else Debug.Log("코인이 부족합니다.");
         UpdateCoinUI();
         UpdateUpgradePriceUI();
     }
-    public void UpgradeMaxHP()
-    {
-        int cost = GetUpgradeCost(player.maxHPlevel);
-        if (player.coins >= cost)
-        {
-            player.coins -= cost;
-            player.maxHPlevel++;
-            Debug.Log("최대 HP 업그레이드!");
-            UpdateCoinUI(); // ← 코인 UI 즉시 갱신
-        }
-        else
-        {
-            Debug.Log("코인이 부족합니다.");
-        }
-    }
     public void Upgradelife()
     {
-        int cost = GetUpgradeCost(player.lifelevel);
-        if (player.coins >= cost)
+        if (ShopPlayer.Instance.TryUpgrade(ref ShopPlayer.Instance.lifeLevel))
         {
-            player.coins -= cost;
-            player.lifelevel++;
-            Debug.Log("회북물약 업그레이드!");
-            UpdateCoinUI(); // ← 코인 UI 즉시 갱신
+            Debug.Log("회복아이템 업그레이드!");
         }
-        else
-        {
-            Debug.Log("코인이 부족합니다.");
-        }
+        else Debug.Log("코인이 부족합니다.");
+        UpdateCoinUI();
+        UpdateUpgradePriceUI();
     }
     public void UpgradeOther()
     {
-        int cost = GetUpgradeCost(player.otherlevel);
-        if (player.coins >= cost)
+        if (ShopPlayer.Instance.TryUpgrade(ref ShopPlayer.Instance.otherLevel))
         {
-            player.coins -= cost;
-            player.otherlevel++;
-            Debug.Log("기타 아이템 업그레이드!");
-            UpdateCoinUI(); // ← 코인 UI 즉시 갱신
+            Debug.Log("기타아이템 업그레이드!");
         }
-        else
-        {
-            Debug.Log("코인이 부족합니다.");
-        }
+        else Debug.Log("코인이 부족합니다.");
+        UpdateCoinUI();
+        UpdateUpgradePriceUI();
     }
     public void UpdateUpgradePriceUI()
     {
@@ -155,6 +145,9 @@ public class ShopSceneManager : MonoBehaviour
         UpdateUpgradePriceUI();
         UpdateCoinUI(); // 이 부분도 ShopPlayer.Instance.coins 기준으로 수정돼야 함
     }
-
+    public void TestClick()
+    {
+        Debug.Log("버튼 눌림!");
+    }
 
 }
