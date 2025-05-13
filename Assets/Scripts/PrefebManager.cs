@@ -10,6 +10,7 @@ public class PrefebManager : MonoBehaviour
     [SerializeField] GameObject JumpObstaclePrefeb;
     [SerializeField] GameObject DoubleJumpObstaclePrefeb;
     [SerializeField] GameObject SlideObstaclePrefeb;
+    [SerializeField] GameObject JellyPrefeb;
 
     [SerializeField] Transform Block1;
     [SerializeField] Transform Block2;
@@ -50,7 +51,7 @@ public class PrefebManager : MonoBehaviour
             Block1GroundList.Add(Instantiate(PlatformPrefeb, remote, quaternion, Block1));
             Block2GroundList.Add(Instantiate(PlatformPrefeb, remote, quaternion, Block2));
         }
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 4; i++)
         {
             Block1JumpObstaclePrefebList.Add(Instantiate(JumpObstaclePrefeb, remote, quaternion, Block1));
             Block2JumpObstaclePrefebList.Add(Instantiate(JumpObstaclePrefeb, remote, quaternion, Block2));
@@ -60,7 +61,7 @@ public class PrefebManager : MonoBehaviour
             Block1DoubleJumpObstaclePrefebList.Add(Instantiate(DoubleJumpObstaclePrefeb, remote, quaternion, Block1));
             Block2DoubleJumpObstaclePrefebList.Add(Instantiate(DoubleJumpObstaclePrefeb, remote, quaternion, Block2));
         }
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 4; i++)
         {
             Block1SlideObstaclePrefebList.Add(Instantiate(SlideObstaclePrefeb, remote, quaternion, Block1));
             Block2SlideObstaclePrefebList.Add(Instantiate(SlideObstaclePrefeb, remote, quaternion, Block2));
@@ -97,6 +98,7 @@ public class PrefebManager : MonoBehaviour
         Vector2[] JumpObstacleVec = mapDataScript.ReturnObstacle1Code();
         Vector2[] DoubleJumpObstacleVec = mapDataScript.ReturnObstacle2Code();
         Vector2[] SlideObstacleVec = mapDataScript.ReturnObstacle3Code();
+        JellyStruct jellyStruct = mapDataScript.jellyStruct;
 
         Transform block = blockTrun == 1 ? Block1 : Block2;
 
@@ -104,8 +106,11 @@ public class PrefebManager : MonoBehaviour
         SetPrefebs(PlatformVec, Platform);
         SetPrefebs(JumpObstacleVec, Obstacle1);
         SetPrefebs(DoubleJumpObstacleVec, Obstacle2);
-        SetPrefebs(SlideObstacleVec, Obstacle3);        
+        SetPrefebs(SlideObstacleVec, Obstacle3);
 
+        SetJelly(JumpObstacleVec, jellyStruct.JumpObsJellyVec);
+        SetJelly(DoubleJumpObstacleVec, jellyStruct.DblObsJellyVec);
+        SetJelly(SlideObstacleVec, jellyStruct.SlideObsJellyVec);
         block.position = lastBlockPosition;
         block.gameObject.SetActive(true);
     }
@@ -129,6 +134,19 @@ public class PrefebManager : MonoBehaviour
             {
                 prefeb[i].transform.localPosition = remote;
             }
+        }
+    }
+
+    void SetJelly(Vector2[] ObstacleVec, Vector2[] JellyVec)
+    {
+       
+        for (int i = 0; i < ObstacleVec.Length; i++)
+        {
+            for(int j = 0; j < JellyVec.Length; j++)
+            {
+                JellyVec[j].x += ObstacleVec[i].x;
+                Instantiate(JellyPrefeb, JellyVec[j], quaternion);
+            }            
         }
     }
 }
