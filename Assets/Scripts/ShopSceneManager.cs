@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ShopSceneManager : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class ShopSceneManager : MonoBehaviour
     public TextMeshProUGUI lifeitemtooltiptxt;
     public TextMeshProUGUI otheritemtooltiptxt;
     public TextMeshProUGUI recentCoin;
+    [SerializeField] private JellyLevelData jellyLevelData;
+    [SerializeField] private Image jellyLevelImage;
 
     public int jellyprice = 1;
     public int maxHPprice = 1;
@@ -96,6 +99,7 @@ public class ShopSceneManager : MonoBehaviour
             Debug.Log("젤리 업그레이드!");
             UpdateCoinUI();
             UpdateUpgradePriceUI();
+            UpdateJellyLevelImage();
         }
         else
         {
@@ -139,11 +143,17 @@ public class ShopSceneManager : MonoBehaviour
         lifetext.text = $"Price: {ShopPlayer.Instance.GetUpgradeCost(ShopPlayer.Instance.lifeLevel)}";
         othertext.text = $"Price: {ShopPlayer.Instance.GetUpgradeCost(ShopPlayer.Instance.otherLevel)}";
     }
+    private void UpdateJellyLevelImage()
+    {
+        int jellyLevel = Mathf.Clamp(ShopPlayer.Instance.jellyLevel, 1, jellyLevelData.levelSprites.Count);
+        jellyLevelImage.sprite = jellyLevelData.levelSprites[jellyLevel - 1];
+    }
 
     void Start()
     {
         UpdateUpgradePriceUI();
         UpdateCoinUI(); // 이 부분도 ShopPlayer.Instance.coins 기준으로 수정돼야 함
+        UpdateJellyLevelImage();
     }
     public void TestClick()
     {
