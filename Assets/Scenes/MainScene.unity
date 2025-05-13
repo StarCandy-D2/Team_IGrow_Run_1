@@ -393,7 +393,6 @@ MonoBehaviour:
   backToMainButton: {fileID: 385506227}
   BigScoreText: {fileID: 810625996}
   BigBestScore: {fileID: 440052499}
-  playtimetext: {fileID: 1910147978}
 --- !u!114 &175970554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,7 +779,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 5e1c1dbcd283e6d469a27890366ef496, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3949359, g: 0.4215707, b: 0.6698113, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3874,8 +3873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693fdec80aa379b418f68766927d6b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageInterval: 10
   stage: 1
+  stageInterval: 10
 --- !u!1 &2087739497
 GameObject:
   m_ObjectHideFlags: 0
