@@ -7,34 +7,34 @@ using UnityEngine;
 public class Jelly : MonoBehaviour
 {
     public Animator animator;
-    int score = 0;
     bool hasEaten = false;
-    [SerializeField] int scoreValue = 1;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] int baseScore = 1;
+    [SerializeField] int scoreStep = 2;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!hasEaten && collision.CompareTag("Player")) // 트리거가 두번 작동하는 것을 방지하기위한 조건문
+        if (!hasEaten && collision.CompareTag("Player"))
         {
             hasEaten = true;
-            Debug.Log(++score); // UI의 스코어랑 연동하여 사용
-            Debug.Log("젤리 먹기");
-            GameManager.Instance.AddScore(scoreValue);
-            animator.SetBool("IsEat", true);
 
+            // jellyLevel 가져오기 (기본값 1 보장)
+            int jellyLevel = ShopPlayer.Instance != null ? ShopPlayer.Instance.jellyLevel : 1;
+
+            // 점수 계산: baseScore × 레벨
+            int finalScore = baseScore + (jellyLevel - 1) * scoreStep;
+
+            Debug.Log($"젤리 먹기! jellyLevel: {jellyLevel}, 점수 획득: {finalScore}");
+            GameManager.Instance.AddScore(finalScore);
+
+            // 애니메이션 재생
+            if (animator != null)
+            {
+                animator.SetBool("IsEat", true);
+            }
+
+            // 일정 시간 후 오브젝트 제거
             Destroy(this.gameObject, 0.2f);
         }
-
     }
 }
