@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class ShopSceneManager : MonoBehaviour
 {
@@ -26,9 +25,6 @@ public class ShopSceneManager : MonoBehaviour
     public TextMeshProUGUI lifeitemtooltiptxt;
     public TextMeshProUGUI otheritemtooltiptxt;
     public TextMeshProUGUI recentCoin;
-    [Header("Jelly Level UI")]
-    [SerializeField] private Image jellyLevelImage;
-    [SerializeField] private List<Sprite> jellyLevelSprites;
 
     public int jellyprice = 1;
     public int maxHPprice = 1;
@@ -37,9 +33,6 @@ public class ShopSceneManager : MonoBehaviour
 
     public int calcurateconst1 = 5;
     public int calcurateconst2 = 5;
-    public Player player;
-
-   
     int GetUpgradeCost(int level)
     {
         return 100 * level * level + 900;
@@ -90,21 +83,19 @@ public class ShopSceneManager : MonoBehaviour
     }
     public void UpdateCoinUI()
     {
-        recentCoin.text = "coin : " + player.coins.ToString();
-        if (player.coins == 0 )
-        {
-            recentCoin.text = "Coin : 0";
-        }
+        recentCoin.text = $"Coin : {ShopPlayer.Instance.coins}";
     }
+
     public void UpgradeJelly()
     {
-        int cost = GetUpgradeCost(player.jellylevel);
-        if (player.coins >= cost)
+        int cost = ShopPlayer.Instance.GetUpgradeCost(ShopPlayer.Instance.jellyLevel);
+        if (ShopPlayer.Instance.coins >= cost)
         {
-            player.coins -= cost;
-            player.jellylevel++;
+            ShopPlayer.Instance.coins -= cost;
+            ShopPlayer.Instance.jellyLevel++;
             Debug.Log("젤리 업그레이드!");
-            UpdateCoinUI(); // ← 코인 UI 즉시 갱신
+            UpdateCoinUI();
+            UpdateUpgradePriceUI();
         }
         else
         {
@@ -113,66 +104,50 @@ public class ShopSceneManager : MonoBehaviour
     }
     public void UpgradeMaxHP()
     {
-        int cost = GetUpgradeCost(player.maxHPlevel);
-        if (player.coins >= cost)
+        if (ShopPlayer.Instance.TryUpgrade(ref ShopPlayer.Instance.maxHPLevel))
         {
-            player.coins -= cost;
-            player.maxHPlevel++;
-            Debug.Log("최대 HP 업그레이드!");
-            UpdateCoinUI(); // ← 코인 UI 즉시 갱신
+            Debug.Log("체력 업그레이드!");
         }
-        else
-        {
-            Debug.Log("코인이 부족합니다.");
-        }
+        else Debug.Log("코인이 부족합니다.");
+        UpdateCoinUI();
+        UpdateUpgradePriceUI();
     }
     public void Upgradelife()
     {
-        int cost = GetUpgradeCost(player.lifelevel);
-        if (player.coins >= cost)
+        if (ShopPlayer.Instance.TryUpgrade(ref ShopPlayer.Instance.lifeLevel))
         {
-            player.coins -= cost;
-            player.lifelevel++;
-            Debug.Log("회북물약 업그레이드!");
-            UpdateCoinUI(); // ← 코인 UI 즉시 갱신
+            Debug.Log("회복아이템 업그레이드!");
         }
-        else
-        {
-            Debug.Log("코인이 부족합니다.");
-        }
+        else Debug.Log("코인이 부족합니다.");
+        UpdateCoinUI();
+        UpdateUpgradePriceUI();
     }
     public void UpgradeOther()
     {
-        int cost = GetUpgradeCost(player.otherlevel);
-        if (player.coins >= cost)
+        if (ShopPlayer.Instance.TryUpgrade(ref ShopPlayer.Instance.otherLevel))
         {
-            player.coins -= cost;
-            player.otherlevel++;
-            Debug.Log("기타 아이템 업그레이드!");
-            UpdateCoinUI(); // ← 코인 UI 즉시 갱신
+            Debug.Log("기타아이템 업그레이드!");
         }
-        else
-        {
-            Debug.Log("코인이 부족합니다.");
-        }
+        else Debug.Log("코인이 부족합니다.");
+        UpdateCoinUI();
+        UpdateUpgradePriceUI();
     }
     public void UpdateUpgradePriceUI()
     {
-        jellytext.text = $"Price: {GetUpgradeCost(player.jellylevel)}";
-        maxHPtext.text = $"Price: {GetUpgradeCost(player.maxHPlevel)}";
-        lifetext.text = $"Price: {GetUpgradeCost(player.lifelevel)}";
-        othertext.text = $"Price: {GetUpgradeCost(player.otherlevel)}";
+        jellytext.text = $"Price: {ShopPlayer.Instance.GetUpgradeCost(ShopPlayer.Instance.jellyLevel)}";
+        maxHPtext.text = $"Price: {ShopPlayer.Instance.GetUpgradeCost(ShopPlayer.Instance.maxHPLevel)}";
+        lifetext.text = $"Price: {ShopPlayer.Instance.GetUpgradeCost(ShopPlayer.Instance.lifeLevel)}";
+        othertext.text = $"Price: {ShopPlayer.Instance.GetUpgradeCost(ShopPlayer.Instance.otherLevel)}";
     }
-    private void UpdateJellyLevelImage()
-    {
-        int lvl = Mathf.Clamp(player.jellylevel, 1, jellyLevelSprites.Count);
-        jellyLevelImage.sprite = jellyLevelSprites[lvl - 1];
-    }
-   
+
     void Start()
     {
         UpdateUpgradePriceUI();
-        UpdateCoinUI();
-        UpdateJellyLevelImage();
+        UpdateCoinUI(); // 이 부분도 ShopPlayer.Instance.coins 기준으로 수정돼야 함
     }
+    public void TestClick()
+    {
+        Debug.Log("버튼 눌림!");
+    }
+
 }
