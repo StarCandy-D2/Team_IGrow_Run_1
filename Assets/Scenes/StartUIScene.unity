@@ -2698,7 +2698,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1637452448}
         m_TargetAssemblyTypeName: StartUIManager, Assembly-CSharp
-        m_MethodName: ShowCredits
+        m_MethodName: Setting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
