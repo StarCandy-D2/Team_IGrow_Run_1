@@ -283,8 +283,8 @@ Transform:
   m_GameObject: {fileID: 80401881}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 1.15, y: 1, z: 1}
+  m_LocalPosition: {x: -0, y: -0.0337, z: 10}
+  m_LocalScale: {x: 1.1500057, y: 0.99346757, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 126086999}
@@ -2209,7 +2209,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 85b6fdcf26435a648a58c06bd4927765, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2273,7 +2273,7 @@ MonoBehaviour:
   maxHPLevel: 1
   lifeLevel: 1
   otherLevel: 1
-  coins: 0
+  coins: 100000
 --- !u!1 &1159490803
 GameObject:
   m_ObjectHideFlags: 0

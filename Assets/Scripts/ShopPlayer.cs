@@ -33,7 +33,7 @@ public class ShopPlayer : MonoBehaviour
     }
     public int GetMaxHP()
     {
-        return 5 + (maxHPLevel - 1) * 2;
+        return 5 + (maxHPLevel -1 ) * 2;
         // 또는 게임 디자인에 맞게 계산 방식 변경
     }
 }

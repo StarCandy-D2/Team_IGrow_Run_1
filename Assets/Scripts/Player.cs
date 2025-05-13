@@ -85,11 +85,17 @@ public class Player : MonoBehaviour
 
             maxHp = ShopPlayer.Instance.GetMaxHP();
             currentHp = maxHp;
+            Debug.Log($"currentHp 초기화 후 값: {currentHp}");
+        }
+        if (hpSlider == null)
+        {
+            Debug.LogError(" hpSlider가 null입니다! Inspector에 연결되어 있는지 확인하세요.");
         }
 
         hpSlider.maxValue = maxHp;
+        currentHp = Mathf.Clamp(currentHp, 0, maxHp); // 혹시 모를 대비
         hpSlider.value = currentHp;
-
+        Debug.Log($"currentHp 초기화 후 값: {currentHp}");
         //디버깅용 코드
         if (!Enum.TryParse(jumpKeyStr, out jumpKey))
         {
