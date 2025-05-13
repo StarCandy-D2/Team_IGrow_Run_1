@@ -12,6 +12,17 @@ public class Jelly : MonoBehaviour
     [SerializeField] int baseScore = 1;
     [SerializeField] int scoreStep = 2;
 
+    [SerializeField] private JellyLevelData jellyLevelData;
+    private SpriteRenderer spriteRenderer;
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (ShopPlayer.Instance != null && jellyLevelData != null)
+        {
+            int lvl = Mathf.Clamp(ShopPlayer.Instance.jellyLevel, 1, jellyLevelData.levelSprites.Count);
+            spriteRenderer.sprite = jellyLevelData.levelSprites[lvl-1];
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!hasEaten && collision.CompareTag("Player"))
