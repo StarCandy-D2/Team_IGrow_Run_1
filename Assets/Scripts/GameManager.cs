@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     private int bestscore = 0;
     private float playTime = 0f;
     private bool isGameRunning = true;
+
+    TutorialManager tutorialManager;
     UIManager uiManager;
     ScoreManager scoreManager;
     ShopSceneManager shopSceneManager;
@@ -33,10 +35,11 @@ public class GameManager : MonoBehaviour
     {
         gameManager = this;
         uiManager = FindObjectOfType<UIManager>();
+        tutorialManager = FindObjectOfType<TutorialManager>();
     }
     void Update()
     {
-        if (isGameRunning)
+        if (isGameRunning && !tutorialManager.isFirstRun)
         {
             playTime += Time.deltaTime;
             UIManager.UpdatePlaytime(playTime); // 실시간으로 반영
