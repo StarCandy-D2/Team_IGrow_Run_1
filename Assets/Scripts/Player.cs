@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     
     [SerializeField] float speedIncreasePerStage = 0.5f; // increase speed per stage ex)3stage =  +1.5f
     [SerializeField] int jumpCount = 0;
+    public int JumpCount => jumpCount;
 
     private Vector2 originalSize;
     private Vector2 originalOffset;
@@ -111,7 +112,15 @@ public class Player : MonoBehaviour
             Debug.LogWarning($"잘못된 슬라이드 키 [{slideKeyStr}], 기본값 'LeftShift'로 설정");
             slideKey = KeyCode.LeftShift;
         }
-        //
+
+    }
+
+    // 발 밑 기준으로 Ray 발사
+    public bool IsGrounded()
+    {
+        Vector2 rayOrigin = transform.position + new Vector3(0, 0.01f, 0);
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, 1.3f, LayerMask.GetMask("Ground"));
+        return hit.collider != null;
     }
 
     void Update()
@@ -119,10 +128,20 @@ public class Player : MonoBehaviour
         // 중력 적용
         verticalSpeed += gravity * Time.deltaTime;
 
-        // 발 밑 기준으로 Ray 발사
+        bool isGrounded = IsGrounded();
+
         Vector2 rayOrigin = transform.position + new Vector3(0, 0.01f, 0);
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, 1.3f, LayerMask.GetMask("Ground"));
-        bool isGrounded = (hit.collider != null);
+
+        if (isGrounded && verticalSpeed <= 0)
+        {
+            jumpCount = 0;
+            verticalSpeed = 0f;
+
+            Vector3 pos = transform.position;
+            pos.y = hit.point.y + 1.2f;
+            transform.position = pos;
+        }
 
         // 점프 입력
         if (Input.GetKeyDown(jumpKey) && jumpCount < 2)
