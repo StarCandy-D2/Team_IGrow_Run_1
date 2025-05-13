@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     UIManager uiManager;
     ScoreManager scoreManager;
     ShopSceneManager shopSceneManager;
+    public int stage = 1;
 
     public UIManager UIManager
     {
@@ -34,6 +35,15 @@ public class GameManager : MonoBehaviour
         uiManager.UpdateScore(0);
         uiManager.UpdateBestScore(PlayerPrefs.GetInt("Score_0", 0));
         uiManager.UpdateBigBestScore(PlayerPrefs.GetInt("Score_0", 0));
+        //StartBGM 제거
+        GameObject bgm = GameObject.Find("BGMPlayer");
+        if (bgm != null)
+        {
+            Destroy(bgm);
+        }
+
+        // 새로운 음악 재생
+        GetComponent<AudioSource>().Play();
     }
 
     public void GameOver()
