@@ -2240,7 +2240,7 @@ MonoBehaviour:
   maxHPLevel: 1
   lifeLevel: 1
   otherLevel: 1
-  coins: 0
+  coins: 10000
 --- !u!1 &1159490803
 GameObject:
   m_ObjectHideFlags: 0
