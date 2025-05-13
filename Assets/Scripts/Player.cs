@@ -85,7 +85,10 @@ public class Player : MonoBehaviour
 
             maxHp = ShopPlayer.Instance.GetMaxHP();
             currentHp = maxHp;
-            Debug.Log($"currentHp 초기화 후 값: {currentHp}");
+            {
+                Debug.Log($"ShopPlayer maxHPLevel: {ShopPlayer.Instance.maxHPLevel}");
+                maxHp = ShopPlayer.Instance.GetMaxHP();
+            }
         }
         if (hpSlider == null)
         {

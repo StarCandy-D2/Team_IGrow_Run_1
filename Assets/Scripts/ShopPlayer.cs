@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShopPlayer : MonoBehaviour
 {
@@ -14,10 +15,17 @@ public class ShopPlayer : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) { Instance = this; DontDestroyOnLoad(gameObject); }
-        else { Destroy(gameObject); }
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-
     public int GetUpgradeCost(int level) => 100 * level * level + 900;
 
     public bool TryUpgrade(ref int level)
@@ -35,5 +43,17 @@ public class ShopPlayer : MonoBehaviour
     {
         return 5 + (maxHPLevel -1 ) * 2;
         // 또는 게임 디자인에 맞게 계산 방식 변경
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // MainScene에서는 비활성화
+        if (scene.name == "MainScene")
+        {
+            gameObject.SetActive(false);  // 화면에서 숨김
+        }
+        else
+        {
+            gameObject.SetActive(true);   // ShopScene 등에서는 다시 보이게
+        }
     }
 }
