@@ -122,7 +122,6 @@ public class Player : MonoBehaviour
         // 발 밑 기준으로 Ray 발사
         Vector2 rayOrigin = transform.position + new Vector3(0, 0.01f, 0);
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, 1.3f, LayerMask.GetMask("Ground"));
-        Debug.DrawRay(rayOrigin, Vector2.down * 2f, Color.red);
         bool isGrounded = (hit.collider != null);
 
         // 점프 입력
