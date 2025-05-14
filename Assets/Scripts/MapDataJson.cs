@@ -29,9 +29,9 @@ public class MapDataJson : MonoBehaviour
         public Vector2[] JumpObsJellyVec { get; private set; }
         public Vector2[] DblObsJellyVec { get; private set; }
         public Vector2[] SlideObsJellyVec { get; private set; }
-        public JellyStruct(Vector2[] jumpobs, Vector2[] dblObs, Vector2[] slideObs)
+        public JellyStruct(Vector2[] jumpObsJellyVec, Vector2[] dblObsJellyVec, Vector2[] slideObsJellyVec)
         {
-            JumpObsJellyVec = jumpobs; DblObsJellyVec = dblObs; SlideObsJellyVec= slideObs;
+            JumpObsJellyVec = jumpObsJellyVec; DblObsJellyVec = dblObsJellyVec; SlideObsJellyVec= slideObsJellyVec;
         }
     }
 
