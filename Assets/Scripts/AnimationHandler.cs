@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,16 +11,21 @@ public class AnimationHandler : MonoBehaviour
     private Animator animator;
     private Player player;
     private Color originalColor;
+    private KeyCode jumpKey;
+    private KeyCode slideKey;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         player = GetComponent<Player>();
         originalColor = spriteRenderer.color;
+        jumpKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("JumpKey", "Space"));
+        slideKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SlideKey", "LeftShift"));
     }
 
     void Update()
     {
+
         // 점프
         //if (player.JumpCount == 1)
         //{
@@ -31,7 +37,7 @@ public class AnimationHandler : MonoBehaviour
         //}
 
         // 슬라이딩
-        if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.E))
+        if (Input.GetKey(slideKey))
         {
             animator.SetBool("Slide", true);
         }
