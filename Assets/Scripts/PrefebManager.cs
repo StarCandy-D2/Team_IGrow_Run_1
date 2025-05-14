@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using static MapDataJson;
+using static Unity.Collections.AllocatorManager;
 
 public class PrefebManager : MonoBehaviour
 {
@@ -31,9 +32,10 @@ public class PrefebManager : MonoBehaviour
     List<GameObject> Block2SlideObstaclePrefebList = new List<GameObject>();
     List<GameObject> Block2JellyPrefebList = new List<GameObject>();
 
-    Vector2 lastBlockPosition = new Vector2(-20, -4.5f);
+    Vector2 lastBlockPosition = new Vector2(-25, -4.5f);
     [SerializeField] MapDataJson mapDataScript;
     Vector2 remote = new Vector2(0, -20);
+    //Vector2 blockVec = new Vector2(-20, -4.5f);
     Quaternion quaternion = Quaternion.identity;
     int num = 0;
     private bool isFirstBlock = true;
@@ -83,19 +85,29 @@ public class PrefebManager : MonoBehaviour
     }
     private void Update()
     {
-
         int blockTurn = num % 2;
         Transform block = blockTurn == 1 ? Block1 : Block2;
-
-
+        //int blockTurn = num % 2;
+        //Transform block = blockTurn == 0 ? Block1 : Block2;
+        //blockVec = block.position;
+        lastBlockPosition = block.position;
+        //Debug.Log("lastBlockPosition = " + lastBlockPosition.x);
     }
     public void SetBlock()
     {
         int blockTurn = num % 2;
+        Transform block = blockTurn == 0 ? Block1 : Block2;
+        if (isFirstBlock)
+        {
+            block.position = lastBlockPosition;
+        }
 
-        float xPos = isFirstBlock ? firstX : nextX;
-        lastBlockPosition = new Vector2(xPos, fixedY);
-
+        //lastBlockPosition = block.position;       
+        lastBlockPosition.x += 40;
+        lastBlockPosition.y = -4.5f;
+        //float xPos = isFirstBlock ? firstX : nextX;
+        //lastBlockPosition = new Vector2(xPos, fixedY);
+        
         Set(blockTurn);
         num++;
         isFirstBlock = false;
@@ -103,13 +115,12 @@ public class PrefebManager : MonoBehaviour
 
     void Set(int blockTurn)
     {
-
-        List<GameObject> ground = blockTurn == 1 ? Block1GroundList : Block2GroundList;
-        List<GameObject> Platform = blockTurn == 1 ? Block1PlatformList : Block2PlatformList;
-        List<GameObject> Obstacle1 = blockTurn == 1 ? Block1JumpObstaclePrefebList : Block2JumpObstaclePrefebList;
-        List<GameObject> Obstacle2 = blockTurn == 1 ? Block1DoubleJumpObstaclePrefebList : Block2DoubleJumpObstaclePrefebList;
-        List<GameObject> Obstacle3 = blockTurn == 1 ? Block1SlideObstaclePrefebList : Block2SlideObstaclePrefebList;
-        List<GameObject> jelly = blockTurn == 1 ? Block1JellyPrefebList : Block2JellyPrefebList;
+        List<GameObject> ground = blockTurn == 0 ? Block1GroundList : Block2GroundList;
+        List<GameObject> Platform = blockTurn == 0 ? Block1PlatformList : Block2PlatformList;
+        List<GameObject> Obstacle1 = blockTurn == 0 ? Block1JumpObstaclePrefebList : Block2JumpObstaclePrefebList;
+        List<GameObject> Obstacle2 = blockTurn == 0 ? Block1DoubleJumpObstaclePrefebList : Block2DoubleJumpObstaclePrefebList;
+        List<GameObject> Obstacle3 = blockTurn == 0 ? Block1SlideObstaclePrefebList : Block2SlideObstaclePrefebList;
+        List<GameObject> jelly = blockTurn == 0 ? Block1JellyPrefebList : Block2JellyPrefebList;
 
 
         Vector2[] GroundVec = mapDataScript.ReturnGroundCode();
@@ -121,10 +132,10 @@ public class PrefebManager : MonoBehaviour
 
         JellyStruct jellyStruct = mapDataScript.jellyStruct;
 
-        Transform block = blockTurn == 1 ? Block1 : Block2;
+        Transform block = blockTurn == 0 ? Block1 : Block2;
 
-        block.position = lastBlockPosition;
-        block.gameObject.SetActive(true);
+        //block.position = lastBlockPosition;
+        //block.gameObject.SetActive(true);
 
         SetPrefebs(GroundVec, ground);
         SetPrefebs(PlatformVec, Platform);
@@ -138,6 +149,8 @@ public class PrefebManager : MonoBehaviour
 
         ResetJelly(jelly, setJelly3[0]);
 
+        
+        //Debug.Log(lastBlockPosition.x);
         block.position = lastBlockPosition;
         block.gameObject.SetActive(true);
     }
@@ -196,6 +209,7 @@ public class PrefebManager : MonoBehaviour
                     vec[j].y = JellyVec[j + plus].y;
 
                     jelly[iNum[0] -1].transform.localPosition = vec[j];
+                    jelly[iNum[0] - 1].transform.localScale = new Vector2(1, 1);
                 }
                 iNum[1]++;
             }            
@@ -227,6 +241,9 @@ public class PrefebManager : MonoBehaviour
 
         {
             jelly[i].transform.localPosition = remote;
+        }
+        for(int i = 0; i < iValue; i++)
+        {
             jelly[i].SetActive(true);
         }
     }

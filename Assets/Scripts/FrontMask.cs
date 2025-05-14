@@ -11,10 +11,10 @@ public class FrontMask : MonoBehaviour
     {
         if (collision.CompareTag("Block"))
         {
-            count++;
-            if (count == 2)
+            mapData.AdvanceStage(); // stageCode 순환
+            if (count == 3)
             {
-                mapData.AdvanceStage(); // stageCode 순환
+                tutorialManager.isFirstRun = false;
                 count = 0;
             }
         }
