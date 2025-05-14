@@ -49,7 +49,8 @@ public class MapDataJson : MonoBehaviour
     int[] jellySetArr;
 
     public int mapCode = -1;
-    int stageCode;
+    public int stageCode = 0; // 순환 가능하게 변경
+    private const int MaxStageCount = 3; // JSON에서 총 4개 스테이지 (0,1,2)
     private void Start()
     {
         string jsonString = Resources.Load("MapData").ToString();
@@ -61,17 +62,30 @@ public class MapDataJson : MonoBehaviour
     }
     public void GetCode()
     {
-        stageCode = tutorialManager.isFirstRun ? 0 : Mathf.Clamp(GameManager.Instance.stage, 1, 3);
+        // 튜토리얼이 끝나면 stageCode를 순환시킴
+        if (!tutorialManager.isFirstRun)
+        {
+            stageCode = stageCode % MaxStageCount;
+        }
+        else
+        {
+            stageCode = 0; // 튜토리얼 중엔 고정
+        }
+
         mapCode = GetRandomCode(mapCode);
-        
-        //stageCode = Mathf.Clamp(GameManager.Instance.stage-1, 0, 2);
+
         GetGroundCode();
         GetPlatformCode();
         GetJumpObstacleCode();
         GetDoubleJumpObstaclCode();
-        GetSlideObstacleCode();        
+        GetSlideObstacleCode();
+        GetJellySetCode();
     }
 
+    public void AdvanceStage()
+    {
+        stageCode = (stageCode + 1) % MaxStageCount;
+    }
     void GetGroundCode()
     {
         if (prefebsStruct[stageCode][mapCode].Ground != null)
@@ -188,22 +202,28 @@ public class MapDataJson : MonoBehaviour
         return jellySetArr;
     }
 
-    int GetRandomCode(int iNum)
+    int GetRandomCode(int prevCode)
     {
-        if(stageCode == 0)  //Æ©Åä¸®¾óÀÇ °æ¿ì
+        if (stageCode == 0 && tutorialManager.isFirstRun)
         {
-            iNum++;
-            if(iNum == 2)
+            prevCode++;
+            if (prevCode >= prefebsStruct[stageCode].Length)
             {
                 tutorialManager.isFirstRun = false;
-                //tutorialManager.isTutorialEnd = true;
+                return 0;
             }
-            return iNum;
+            return prevCode;
         }
         else
         {
-            int code = UnityEngine.Random.Range(0, prefebsStruct[stageCode].Length);
-            return code;
-        }            
+            int length = prefebsStruct[stageCode].Length;
+            if (length == 0)
+            {
+                Debug.LogError($"[MapDataJson] No maps defined for stage {stageCode}");
+                return 0;
+            }
+
+            return UnityEngine.Random.Range(0, length);
+        }
     }
 }

@@ -45,46 +45,20 @@ public class TutorialManager : MonoBehaviour
     }
     void TutorialTime()
     {
-        bool TS, ST;
 
-        TS = TimeSlow();
-        ST = ShowTutorialUi();
-
-        if (TS && ST)
-        {
-            isTimeSlow = true;
-        }
     }
     bool TimeSlow()
     {
         if (!isTimeSlow)
         {
             Debug.Log("Slow");
-            Time.timeScale = 0.1f;
+            Time.timeScale = 1f;
             return true;
         }
         return false;
     }
 
-    bool ShowTutorialUi()
-    {
-        string text;
-        tutorialUI.SetActive(true);
-        switch (mapDataJson.mapCode)
-        {
-            case 0:
-                text = "Space\nLeft Click";
-                break;
-            case 1:
-                text = "Space X2\nLeft Click X2";
-                break;
-            default:
-                text = "Shift\nRight Click";
-                break;
-        }
-        tutorialText.text = text;
-        return true;
-    }
+
 
     void TutorialTimeIsEnd(int i)
     {

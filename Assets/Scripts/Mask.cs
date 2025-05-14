@@ -6,13 +6,23 @@ public class Mask : MonoBehaviour
 {
     [SerializeField] PrefebManager pref;
     [SerializeField] MapDataJson mapDataScript;
-
+    private bool hasTriggered = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Block")
+        if (collision.CompareTag("Block") && !hasTriggered)
         {
-            mapDataScript.GetCode();
-            pref.SetBlock();
+            hasTriggered = true;
+            StartCoroutine(DelayBlockSpawn());
         }
+    }
+
+    IEnumerator DelayBlockSpawn()
+    {
+        yield return new WaitForSeconds(3f); //  3초 대기
+
+        mapDataScript.GetCode();     // 맵 데이터 갱신
+        pref.SetBlock();             // 블록 생성
+
+        hasTriggered = false;        // 다시 충돌 허용
     }
 }
