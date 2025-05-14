@@ -202,7 +202,6 @@ public class Player : MonoBehaviour
         currentHp = Mathf.Clamp(currentHp, 0, maxHp);
         hpSlider.value = currentHp;
 
-        Debug.Log($"장애물 트리거 충돌! 현재 체력: {currentHp}");
 
         if (currentHp <= 0)
         {
@@ -224,7 +223,6 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("트리거 충돌 감지: " + other.gameObject.name);
 
         if (other.CompareTag("Obstacles") && !isInvincible)
         {

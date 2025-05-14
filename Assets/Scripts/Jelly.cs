@@ -35,7 +35,6 @@ public class Jelly : MonoBehaviour
             // 점수 계산: baseScore × 레벨
             int finalScore = baseScore + (jellyLevel - 1) * scoreStep;
 
-            Debug.Log($"젤리 먹기! jellyLevel: {jellyLevel}, 점수 획득: {finalScore}");
             GameManager.Instance.AddScore(finalScore);
 
             // 애니메이션 재생
