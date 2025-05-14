@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     private Vector2 originalSize;
     private Vector2 originalOffset;
     private Vector2 slideSize = new Vector2(1f, 0.5f);
-    private Vector2 slideOffset = new Vector2(0f, -0.25f);
+    private Vector2 slideOffset = new Vector2(0f, -0.5f);
 
     private float verticalSpeed = 0f;
     private float currentRunSpeed;
