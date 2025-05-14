@@ -36,7 +36,10 @@ public class PrefebManager : MonoBehaviour
     Vector2 remote = new Vector2(0, -20);
     Quaternion quaternion = Quaternion.identity;
     int num = 0;
-
+    private bool isFirstBlock = true;
+    readonly float firstX = 15f;
+    readonly float nextX = 25f;
+    readonly float fixedY = -4.5f;
     private void Start()
     {
         InstantiatePrefebs();
@@ -85,15 +88,17 @@ public class PrefebManager : MonoBehaviour
         Transform block = blockTurn == 1 ? Block1 : Block2;
 
 
-        lastBlockPosition = block.position;
     }
     public void SetBlock()
     {
-        num++;
-        int blockTrun = num % 2;
-        lastBlockPosition.x += 40;
+        int blockTurn = num % 2;
 
-        Set(blockTrun);
+        float xPos = isFirstBlock ? firstX : nextX;
+        lastBlockPosition = new Vector2(xPos, fixedY);
+
+        Set(blockTurn);
+        num++;
+        isFirstBlock = false;
     }
 
     void Set(int blockTurn)
@@ -117,6 +122,9 @@ public class PrefebManager : MonoBehaviour
         JellyStruct jellyStruct = mapDataScript.jellyStruct;
 
         Transform block = blockTurn == 1 ? Block1 : Block2;
+
+        block.position = lastBlockPosition;
+        block.gameObject.SetActive(true);
 
         SetPrefebs(GroundVec, ground);
         SetPrefebs(PlatformVec, Platform);
@@ -216,8 +224,10 @@ public class PrefebManager : MonoBehaviour
     void ResetJelly(List<GameObject> jelly, int iValue)
     {
         for (int i = iValue; i < jelly.Count; i++)
+
         {
             jelly[i].transform.localPosition = remote;
+            jelly[i].SetActive(true);
         }
     }
 }

@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     private Vector2 originalSize;
     private Vector2 originalOffset;
     private Vector2 slideSize = new Vector2(1f, 0.5f);
-    private Vector2 slideOffset = new Vector2(0f, -0.25f);
+    private Vector2 slideOffset = new Vector2(0f, -0.5f);
 
     private float verticalSpeed = 0f;
     private float currentRunSpeed;
@@ -202,7 +202,6 @@ public class Player : MonoBehaviour
         currentHp = Mathf.Clamp(currentHp, 0, maxHp);
         hpSlider.value = currentHp;
 
-        Debug.Log($"장애물 트리거 충돌! 현재 체력: {currentHp}");
 
         if (currentHp <= 0)
         {
@@ -224,7 +223,6 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("트리거 충돌 감지: " + other.gameObject.name);
 
         if (other.CompareTag("Obstacles") && !isInvincible)
         {
