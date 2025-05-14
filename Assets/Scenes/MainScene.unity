@@ -636,6 +636,7 @@ MonoBehaviour:
   maxHp: 6
   speedIncreasePerStage: 0.5
   jumpCount: 0
+  animationHandler: {fileID: 0}
   stage: 0
   jellylevel: 1
   maxHPlevel: 1
@@ -678,6 +679,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a5a70b1b55f094084d59dbbcda1586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.25
 --- !u!4 &250818084 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9181847031297426565, guid: 3e668766be4f0db429a0eb1a4f39152f, type: 3}

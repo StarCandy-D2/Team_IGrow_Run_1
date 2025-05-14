@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     
     [SerializeField] float speedIncreasePerStage = 0.5f; // increase speed per stage ex)3stage =  +1.5f
     [SerializeField] int jumpCount = 0;
+    [SerializeField] private AnimationHandler animationHandler;
     public int JumpCount => jumpCount;
 
     private Vector2 originalSize;
@@ -78,6 +79,8 @@ public class Player : MonoBehaviour
         originalOffset = boxCollider.offset;
         currentRunSpeed = BaseRunSpeed;
 
+        animationHandler = GetComponent<AnimationHandler>();
+        
         if (ShopPlayer.Instance != null)
         {
             jellylevel = ShopPlayer.Instance.jellyLevel;
@@ -228,6 +231,7 @@ public class Player : MonoBehaviour
             if (isGod) return;
 
             UpdateHPSlider(1);          // 체력 깎기
+            GetComponent<AnimationHandler>().FlashDamageColor(); // 데미지 입을시 색 변경
             StartCoroutine(InvinciblityCoroutine());  // 무적 시작
         }
     }
