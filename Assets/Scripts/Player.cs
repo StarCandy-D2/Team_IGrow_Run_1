@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     private Vector2 slideSize = new Vector2(1f, 0.5f);
     private Vector2 slideOffset = new Vector2(0f, -0.5f);
 
+    public float VerticalSpeed => verticalSpeed;
     private float verticalSpeed = 0f;
     private float currentRunSpeed;
     public int stage = 0;
