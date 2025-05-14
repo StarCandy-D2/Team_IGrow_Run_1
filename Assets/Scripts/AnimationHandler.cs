@@ -13,6 +13,7 @@ public class AnimationHandler : MonoBehaviour
     private Color originalColor;
     private KeyCode jumpKey;
     private KeyCode slideKey;
+    private bool wasGrounded;
 
     void Start()
     {
@@ -27,14 +28,33 @@ public class AnimationHandler : MonoBehaviour
     {
 
         // 점프
-        if (player.JumpCount == 1)
+        if (player.JumpCount == 1 && wasGrounded)
         {
             animator.SetTrigger("Jump1");
         }
-        else if (player.JumpCount == 2)
+        else if (player.JumpCount == 2 && !wasGrounded)
         {
             animator.SetTrigger("Jump2");
         }
+
+        // 착지 여부
+        bool isGrounded = player.IsGrounded();
+        animator.SetBool("isGrounded", isGrounded);
+
+        // 하강 여부 감지
+        float yVelocity = player.GetComponent<Rigidbody2D>().velocity.y;
+        bool isFalling = yVelocity < 0 && !isGrounded;
+        animator.SetBool("isFalling", isFalling);
+
+        // 이전 프레임과 비교해서 착지 타이밍 판단
+        if (!wasGrounded && isGrounded)
+        {
+            // 애니메이터 파라미터 설정
+        }
+        
+        // 착지 감지
+        wasGrounded = isGrounded;
+
 
         // 슬라이딩
         if (Input.GetKey(slideKey))
@@ -45,9 +65,6 @@ public class AnimationHandler : MonoBehaviour
         {
             animator.SetBool("Slide", false);
         }
-
-        // 착지 시 달리기
-        //animator.SetBool("isGrounded", player.IsGrounded());
 
         //죽음
         //if (player.isDead)
