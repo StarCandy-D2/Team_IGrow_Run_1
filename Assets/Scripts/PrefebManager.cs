@@ -209,6 +209,7 @@ public class PrefebManager : MonoBehaviour
                     vec[j].y = JellyVec[j + plus].y;
 
                     jelly[iNum[0] -1].transform.localPosition = vec[j];
+                    jelly[iNum[0] - 1].transform.localScale = new Vector2(1, 1);
                 }
                 iNum[1]++;
             }            
