@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static MapDataJson;
 
 public class PrefebManager : MonoBehaviour
-{    
+{
     [SerializeField] GameObject GroundPrefeb;
     [SerializeField] GameObject PlatformPrefeb;
     [SerializeField] GameObject JumpObstaclePrefeb;
@@ -25,8 +26,8 @@ public class PrefebManager : MonoBehaviour
 
     List<GameObject> Block2GroundList = new List<GameObject>();
     List<GameObject> Block2PlatformList = new List<GameObject>();
-    List<GameObject> Block2JumpObstaclePrefebList = new List<GameObject>();    
-    List<GameObject> Block2DoubleJumpObstaclePrefebList = new List<GameObject>();    
+    List<GameObject> Block2JumpObstaclePrefebList = new List<GameObject>();
+    List<GameObject> Block2DoubleJumpObstaclePrefebList = new List<GameObject>();
     List<GameObject> Block2SlideObstaclePrefebList = new List<GameObject>();
     List<GameObject> Block2JellyPrefebList = new List<GameObject>();
 
@@ -51,8 +52,8 @@ public class PrefebManager : MonoBehaviour
         }
         for (int i = 0; i < 6; i++)
         {
-            Block1GroundList.Add(Instantiate(PlatformPrefeb, remote, quaternion, Block1.GetChild(1)));
-            Block2GroundList.Add(Instantiate(PlatformPrefeb, remote, quaternion, Block2.GetChild(1)));
+            Block1PlatformList.Add(Instantiate(PlatformPrefeb, remote, quaternion, Block1.GetChild(1)));
+            Block2PlatformList.Add(Instantiate(PlatformPrefeb, remote, quaternion, Block2.GetChild(1)));
         }
         for (int i = 0; i < 4; i++)
         {
@@ -111,7 +112,7 @@ public class PrefebManager : MonoBehaviour
         Vector2[] JumpObstacleVec = mapDataScript.ReturnObstacle1Code();
         Vector2[] DoubleJumpObstacleVec = mapDataScript.ReturnObstacle2Code();
         Vector2[] SlideObstacleVec = mapDataScript.ReturnObstacle3Code();
-        int[] jellySets = mapDataScript.ReturnJellySets() == null ? new int[] { 0, 0 } : mapDataScript.ReturnJellySets();
+        int[][] jellySets = mapDataScript.ReturnJellySets() == null ? null : mapDataScript.ReturnJellySets();
 
         JellyStruct jellyStruct = mapDataScript.jellyStruct;
 
@@ -123,11 +124,11 @@ public class PrefebManager : MonoBehaviour
         SetPrefebs(DoubleJumpObstacleVec, Obstacle2);
         SetPrefebs(SlideObstacleVec, Obstacle3);
 
-        int setJelly1 = SetJelly(JumpObstacleVec, jellyStruct.JumpObsJellyVec, jelly, -1, jellySets);
-        int setJelly2 = SetJelly(DoubleJumpObstacleVec, jellyStruct.DblObsJellyVec, jelly, setJelly1, jellySets);
-        int setJelly3 = SetJelly(SlideObstacleVec, jellyStruct.SlideObsJellyVec, jelly, setJelly2, jellySets);
-        Debug.Log($"Setjelly1 = {setJelly1}\nSetjelly2 = {setJelly2}\nSetjelly3 = {setJelly3}");
-        ResetJelly(jelly, setJelly3);
+        int[] setJelly1 = SetJelly(JumpObstacleVec, jellyStruct.JumpObsJellyVec, jelly, new int[] {-1, 0}, jellySets);
+        int[] setJelly2 = SetJelly(DoubleJumpObstacleVec, jellyStruct.DblObsJellyVec, jelly, setJelly1, jellySets);
+        int[] setJelly3 = SetJelly(SlideObstacleVec, jellyStruct.SlideObsJellyVec, jelly, setJelly2, jellySets);
+
+        ResetJelly(jelly, setJelly3[0]);
 
         block.position = lastBlockPosition;
         block.gameObject.SetActive(true);
@@ -141,7 +142,7 @@ public class PrefebManager : MonoBehaviour
             {
                 prefeb[i].transform.localPosition = prefebVec[i];
             }
-            for(int j = prefebVec.Length; j < prefeb.Count; j++)
+            for (int j = prefebVec.Length; j < prefeb.Count; j++)
             {
                 prefeb[j].transform.localPosition = remote;
             }
@@ -155,40 +156,68 @@ public class PrefebManager : MonoBehaviour
         }
     }
 
-
-    int SetJelly(Vector2[] ObstacleVec, Vector2[] JellyVec, List<GameObject> jelly, int iValue, int[] jellySets)
+    int[] SetJelly(Vector2[] ObstacleVec, Vector2[] JellyVec, List<GameObject> jelly, int[] iValue, int[][] jellySets)
 
     {
         if (ObstacleVec != null)
         {
             Vector2[] vec = new Vector2[JellyVec.Length];
-            int iNum = iValue != 0 ? iValue++ : iValue, k = 0;
+            int[] iNum = new int[2];
+            if (iValue[0] < 0)
+            {
+                iValue[0]++;
+                iNum[0] = iValue[0];
+                iNum[1] = iValue[1];
+            }
+            else
+            {
+                iNum[0] = iValue[0];
+                iNum[1] = iValue[1];
+            }
             for (int i = 0; i < ObstacleVec.Length; i++)
             {
-                for (int j = 0 + jellySets[0]; j < JellyVec.Length - jellySets[1]; j++)
+                int plus = jellySets == null ? 0 : jellySets[iNum[1]][0];
+                int minus = jellySets == null ? 0 : jellySets[iNum[1]][1];
+ 
+                int jellyCount = JellyVec.Length - minus - plus;
+                for (int j = 0; j < jellyCount; j++)
                 {
-                    iNum = k * JellyVec.Length + j + iValue;
-                    vec[j].x = JellyVec[j].x + ObstacleVec[i].x;
-                    vec[j].y = JellyVec[j].y;
+                    iNum[0] = iNum[0] + 1;
+                    iNum[0] = i > 0 && j == 0 ? iNum[0]++ : iNum[0];
+                    vec[j].x = JellyVec[j + plus].x + ObstacleVec[i].x;
+                    vec[j].y = JellyVec[j + plus].y;
 
-                    jelly[iNum].transform.localPosition = vec[j];
+                    jelly[iNum[0] -1].transform.localPosition = vec[j];
                 }
-                k++;
-            }
+                iNum[1]++;
+            }            
             return iNum;
         }
         else
         {
-            return iValue < 0 ? 0 : iValue;
+            int[] iNum = new int[2];
+            if (iValue[0] < 0)
+            {
+                iValue[0]++;
+                iNum[0] = iValue[0];
+                iNum[1] = iValue[1];
+                return iNum;
+            }
+            else
+            {
+                iNum[0] = iValue[0];
+                iNum[1] = iValue[1];
+                return iNum;
+            }
+                //Debug.Log("Inum = " + iValue);
         }
     }
 
     void ResetJelly(List<GameObject> jelly, int iValue)
     {
-        for(int i = iValue+1; i < jelly.Count; i++)
+        for (int i = iValue; i < jelly.Count; i++)
         {
             jelly[i].transform.localPosition = remote;
         }
-
     }
 }
