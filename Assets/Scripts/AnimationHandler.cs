@@ -10,6 +10,8 @@ public class AnimationHandler : MonoBehaviour
     private Animator animator;
     private Player player;
     private Color originalColor;
+    bool jump1Triggered = false;
+    bool jump2Triggered = false;
 
     void Start()
     {
@@ -21,13 +23,15 @@ public class AnimationHandler : MonoBehaviour
     void Update()
     {
         // 점프
-        //if (player.JumpCount == 1)
-        //{
-        //    animator.SetTrigger("Jump1");
-        //}
+        if (player.JumpCount == 1)
+        {
+            animator.SetTrigger("Jump1");
+            jump1Triggered = true;
+        }
         //else if (player.JumpCount == 2)
         //{
         //    animator.SetTrigger("Jump2");
+        //    jump2Triggered = true;
         //}
 
         // 슬라이딩
@@ -40,8 +44,14 @@ public class AnimationHandler : MonoBehaviour
             animator.SetBool("Slide", false);
         }
 
+        if (player.IsGrounded())
+        {
+            jump1Triggered = false;
+            jump2Triggered = false;
+        }
+
         // 착지 시 달리기
-        //animator.SetBool("isGrounded", player.IsGrounded());
+        animator.SetBool("isGrounded", player.IsGrounded());
 
         //죽음
         //if (player.isDead)
