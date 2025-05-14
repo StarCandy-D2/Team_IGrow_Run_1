@@ -108,33 +108,51 @@ public class ShopSceneManager : MonoBehaviour
     }
     public void UpgradeMaxHP()
     {
-        if (ShopPlayer.Instance.TryUpgrade(ref ShopPlayer.Instance.maxHPLevel))
+        int cost = ShopPlayer.Instance.GetUpgradeCost(ShopPlayer.Instance.maxHPLevel);
+        if (ShopPlayer.Instance.coins >= cost)
         {
+            ShopPlayer.Instance.coins -= cost;
+            ShopPlayer.Instance.maxHPLevel++;
             Debug.Log("체력 업그레이드!");
+            UpdateCoinUI();
+            UpdateUpgradePriceUI();
         }
-        else Debug.Log("코인이 부족합니다.");
-        UpdateCoinUI();
-        UpdateUpgradePriceUI();
+        else
+        {
+            Debug.Log("코인이 부족합니다.");
+        }
     }
     public void Upgradelife()
     {
-        if (ShopPlayer.Instance.TryUpgrade(ref ShopPlayer.Instance.lifeLevel))
+        int cost = ShopPlayer.Instance.GetUpgradeCost(ShopPlayer.Instance.lifeLevel);
+        if (ShopPlayer.Instance.coins >= cost)
         {
-            Debug.Log("회복아이템 업그레이드!");
+            ShopPlayer.Instance.coins -= cost;
+            ShopPlayer.Instance.lifeLevel++;
+            Debug.Log("회복 업그레이드!");
+            UpdateCoinUI();
+            UpdateUpgradePriceUI();
         }
-        else Debug.Log("코인이 부족합니다.");
-        UpdateCoinUI();
-        UpdateUpgradePriceUI();
+        else
+        {
+            Debug.Log("코인이 부족합니다.");
+        }
     }
     public void UpgradeOther()
     {
-        if (ShopPlayer.Instance.TryUpgrade(ref ShopPlayer.Instance.otherLevel))
+        int cost = ShopPlayer.Instance.GetUpgradeCost(ShopPlayer.Instance.otherLevel);
+        if (ShopPlayer.Instance.coins >= cost)
         {
-            Debug.Log("기타아이템 업그레이드!");
+            ShopPlayer.Instance.coins -= cost;
+            ShopPlayer.Instance.otherLevel++;
+            Debug.Log("기타 업그레이드!");
+            UpdateCoinUI();
+            UpdateUpgradePriceUI();
         }
-        else Debug.Log("코인이 부족합니다.");
-        UpdateCoinUI();
-        UpdateUpgradePriceUI();
+        else
+        {
+            Debug.Log("코인이 부족합니다.");
+        }
     }
     public void UpdateUpgradePriceUI()
     {
