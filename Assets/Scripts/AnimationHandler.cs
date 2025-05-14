@@ -67,10 +67,10 @@ public class AnimationHandler : MonoBehaviour
         }
 
         //죽음
-        //if (player.isDead)
-        //{
-        //    animator.SetTrigger("Die");
-        //}
+        if (player.isDead)
+        {
+            animator.SetTrigger("Die");
+        }
     }
 
     // 데미지 입을시 색상 변경
