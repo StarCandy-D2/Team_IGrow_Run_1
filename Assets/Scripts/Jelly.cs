@@ -7,7 +7,7 @@ using UnityEngine;
 public class Jelly : MonoBehaviour
 {
     public Animator animator;
-    bool hasEaten = false;
+    //bool hasEaten = false;
 
     [SerializeField] int baseScore = 1;
     [SerializeField] int scoreStep = 2;
@@ -25,9 +25,9 @@ public class Jelly : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!hasEaten && collision.CompareTag("Player"))
+        if (collision.CompareTag("Player")) //!hasEaten && 
         {
-            hasEaten = true;
+            //hasEaten = true;
 
             int jellyLevel = ShopPlayer.Instance != null ? ShopPlayer.Instance.jellyLevel : 1;
             int finalScore = baseScore + (jellyLevel - 1) * scoreStep;
