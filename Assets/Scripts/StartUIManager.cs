@@ -61,6 +61,10 @@ public class StartUIManager : MonoBehaviour
     {
         SceneManager.LoadScene("ShopScene");
     }
+    public void Setting()
+    {
+        SceneManager.LoadScene("SettingsScene");
+    }
     public void QuitGame()
     {
 #if UNITY_EDITOR

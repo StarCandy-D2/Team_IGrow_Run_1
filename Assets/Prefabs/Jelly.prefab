@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1527466644622738124}
   m_Layer: 0
   m_Name: Jelly
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,4 +156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4712968629904791772}
-  scoreValue: 1
+  baseScore: 1
+  scoreStep: 2
+  jellyLevelData: {fileID: 11400000, guid: 8b0605257e594354b8c035069d834ca8, type: 2}

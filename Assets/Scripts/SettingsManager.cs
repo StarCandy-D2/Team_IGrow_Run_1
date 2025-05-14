@@ -16,8 +16,6 @@ public class SettingsManager : MonoBehaviour
     public TMP_InputField slideKeyInputField;
 
     private AudioSource bgmSource;
-    private bool isEditingJump = false;
-private bool isEditingSlide = false;
 
     void Start()
     {
