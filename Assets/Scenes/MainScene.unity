@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a5a70b1b55f094084d59dbbcda1586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 197147937}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.25
 --- !u!4 &250818084 stripped
