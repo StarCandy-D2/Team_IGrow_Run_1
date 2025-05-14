@@ -111,6 +111,8 @@ public class PrefebManager : MonoBehaviour
         Vector2[] JumpObstacleVec = mapDataScript.ReturnObstacle1Code();
         Vector2[] DoubleJumpObstacleVec = mapDataScript.ReturnObstacle2Code();
         Vector2[] SlideObstacleVec = mapDataScript.ReturnObstacle3Code();
+        int[] jellySets = mapDataScript.ReturnJellySets() == null ? new int[] { 0, 0 } : mapDataScript.ReturnJellySets();
+
         JellyStruct jellyStruct = mapDataScript.jellyStruct;
 
         Transform block = blockTurn == 1 ? Block1 : Block2;
@@ -121,9 +123,9 @@ public class PrefebManager : MonoBehaviour
         SetPrefebs(DoubleJumpObstacleVec, Obstacle2);
         SetPrefebs(SlideObstacleVec, Obstacle3);
 
-        int setJelly1 = SetJelly(JumpObstacleVec, jellyStruct.JumpObsJellyVec, jelly, -1);
-        int setJelly2 = SetJelly(DoubleJumpObstacleVec, jellyStruct.DblObsJellyVec, jelly, setJelly1);
-        int setJelly3 = SetJelly(SlideObstacleVec, jellyStruct.SlideObsJellyVec, jelly, setJelly2);
+        int setJelly1 = SetJelly(JumpObstacleVec, jellyStruct.JumpObsJellyVec, jelly, -1, jellySets);
+        int setJelly2 = SetJelly(DoubleJumpObstacleVec, jellyStruct.DblObsJellyVec, jelly, setJelly1, jellySets);
+        int setJelly3 = SetJelly(SlideObstacleVec, jellyStruct.SlideObsJellyVec, jelly, setJelly2, jellySets);
         Debug.Log($"Setjelly1 = {setJelly1}\nSetjelly2 = {setJelly2}\nSetjelly3 = {setJelly3}");
         ResetJelly(jelly, setJelly3);
 
@@ -154,7 +156,8 @@ public class PrefebManager : MonoBehaviour
     }
 
 
-    int SetJelly(Vector2[] ObstacleVec, Vector2[] JellyVec, List<GameObject> jelly, int iValue)
+    int SetJelly(Vector2[] ObstacleVec, Vector2[] JellyVec, List<GameObject> jelly, int iValue, int[] jellySets)
+
     {
         if (ObstacleVec != null)
         {
@@ -162,7 +165,7 @@ public class PrefebManager : MonoBehaviour
             int iNum = iValue != 0 ? iValue++ : iValue, k = 0;
             for (int i = 0; i < ObstacleVec.Length; i++)
             {
-                for (int j = 0; j < JellyVec.Length; j++)
+                for (int j = 0 + jellySets[0]; j < JellyVec.Length - jellySets[1]; j++)
                 {
                     iNum = k * JellyVec.Length + j + iValue;
                     vec[j].x = JellyVec[j].x + ObstacleVec[i].x;

@@ -17,15 +17,15 @@ public class MapDataJson : MonoBehaviour
         public float[] JumpObstacle { get; private set; }
         public float[] DoubleJumpObstacle { get; private set; }
         public float[] SlideObstacle { get; private set; }
-        public PrefebsStruct(string stage, float[] ground, Vector2[] platform, float[] jumpObstacle, float[] doubleJumpObstacle, float[] slideObstacle)
+        public int[][] JellySet { get; private set; }
+        public PrefebsStruct(string stage, float[] ground, Vector2[] platform, float[] jumpObstacle, float[] doubleJumpObstacle, float[] slideObstacle, int[][] jellySet)
         {
-            Stage = stage; Ground = ground; Platform = platform; JumpObstacle = jumpObstacle; DoubleJumpObstacle = doubleJumpObstacle; SlideObstacle = slideObstacle;
+            Stage = stage; Ground = ground; Platform = platform; JumpObstacle = jumpObstacle; DoubleJumpObstacle = doubleJumpObstacle; SlideObstacle = slideObstacle; JellySet = jellySet;
         }
     }
 
     public struct JellyStruct
     {
-
         public Vector2[] JumpObsJellyVec { get; private set; }
         public Vector2[] DblObsJellyVec { get; private set; }
         public Vector2[] SlideObsJellyVec { get; private set; }
@@ -46,6 +46,7 @@ public class MapDataJson : MonoBehaviour
     Vector2[] jumpObstacleVec;
     Vector2[] doubleJumpObstacleVec;
     Vector2[] slideObstacleVec;
+    int[] jellySetArr;
 
     public int mapCode = -1;
     int stageCode;
@@ -146,6 +147,21 @@ public class MapDataJson : MonoBehaviour
             slideObstacleVec = null;
         }
     }
+    void GetJellySetCode()
+    {
+        if (prefebsStruct[stageCode][mapCode].JellySet != null)
+        {
+            jellySetArr = new int[2];
+            for (int i = 0; i < prefebsStruct[stageCode][mapCode].SlideObstacle.Length; i++)
+            {
+                jellySetArr = prefebsStruct[stageCode][mapCode].JellySet[i];
+            }
+        }
+        else if (prefebsStruct[stageCode][mapCode].JellySet == null)
+        {
+            jellySetArr = null;
+        }
+    }
 
     public Vector2[] ReturnGroundCode()
     {
@@ -166,6 +182,10 @@ public class MapDataJson : MonoBehaviour
     public Vector2[] ReturnObstacle3Code()
     {
         return slideObstacleVec;
+    }
+    public int[] ReturnJellySets()
+    {
+        return jellySetArr;
     }
 
     int GetRandomCode(int iNum)
