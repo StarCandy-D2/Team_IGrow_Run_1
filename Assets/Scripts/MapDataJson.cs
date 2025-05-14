@@ -23,7 +23,20 @@ public class MapDataJson : MonoBehaviour
         }
     }
 
+    public struct JellyStruct
+    {
+
+        public Vector2[] JumpObsJellyVec { get; private set; }
+        public Vector2[] DblObsJellyVec { get; private set; }
+        public Vector2[] SlideObsJellyVec { get; private set; }
+        public JellyStruct(Vector2[] jumpobs, Vector2[] dblObs, Vector2[] slideObs)
+        {
+            JumpObsJellyVec = jumpobs; DblObsJellyVec = dblObs; SlideObsJellyVec= slideObs;
+        }
+    }
+
     PrefebsStruct[][] prefebsStruct;
+    public JellyStruct jellyStruct;
 
     Vector2[] GroundVec;
     Vector2[] PlatformVec;
@@ -36,7 +49,9 @@ public class MapDataJson : MonoBehaviour
     private void Start()
     {
         string jsonString = Resources.Load("MapData").ToString();
+        string jsonString2 = Resources.Load("Jelly").ToString();
         prefebsStruct = JsonConvert.DeserializeObject<PrefebsStruct[][]>(jsonString);
+        jellyStruct = JsonConvert.DeserializeObject<JellyStruct>(jsonString2);
 
         GetCode();
     }
@@ -50,8 +65,9 @@ public class MapDataJson : MonoBehaviour
         GetPlatformCode();
         GetJumpObstacleCode();
         GetDoubleJumpObstaclCode();
-        GetSlideObstacleCode();
+        GetSlideObstacleCode();        
     }
+
     void GetGroundCode()
     {
         if (prefebsStruct[stageCode][mapCode].Ground != null)
