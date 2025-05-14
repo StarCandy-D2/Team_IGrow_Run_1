@@ -46,7 +46,7 @@ public class MapDataJson : MonoBehaviour
     Vector2[] jumpObstacleVec;
     Vector2[] doubleJumpObstacleVec;
     Vector2[] slideObstacleVec;
-    int[] jellySetArr;
+    int[][] jellySetArr;
 
     public int mapCode = -1;
     public int stageCode = 0; // 순환 가능하게 변경
@@ -165,10 +165,10 @@ public class MapDataJson : MonoBehaviour
     {
         if (prefebsStruct[stageCode][mapCode].JellySet != null)
         {
-            jellySetArr = new int[2];
-            for (int i = 0; i < prefebsStruct[stageCode][mapCode].SlideObstacle.Length; i++)
+            jellySetArr = new int[prefebsStruct[stageCode][mapCode].JellySet.Length][];
+            for (int i = 0; i < prefebsStruct[stageCode][mapCode].JellySet.Length; i++)
             {
-                jellySetArr = prefebsStruct[stageCode][mapCode].JellySet[i];
+                jellySetArr = prefebsStruct[stageCode][mapCode].JellySet;
             }
         }
         else if (prefebsStruct[stageCode][mapCode].JellySet == null)
@@ -197,7 +197,7 @@ public class MapDataJson : MonoBehaviour
     {
         return slideObstacleVec;
     }
-    public int[] ReturnJellySets()
+    public int[][] ReturnJellySets()
     {
         return jellySetArr;
     }
