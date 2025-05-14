@@ -27,14 +27,14 @@ public class AnimationHandler : MonoBehaviour
     {
 
         // 점프
-        //if (player.JumpCount == 1)
-        //{
-        //    animator.SetTrigger("Jump1");
-        //}
-        //else if (player.JumpCount == 2)
-        //{
-        //    animator.SetTrigger("Jump2");
-        //}
+        if (player.JumpCount == 1)
+        {
+            animator.SetTrigger("Jump1");
+        }
+        else if (player.JumpCount == 2)
+        {
+            animator.SetTrigger("Jump2");
+        }
 
         // 슬라이딩
         if (Input.GetKey(slideKey))
