@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         currentScore += score;
         uiManager.UpdateScore(currentScore);
         uiManager.UpdateBigScore(currentScore);
-        Debug.Log("Score: " + currentScore);
+        //Debug.Log("Score: " + currentScore);
     }
     public void BestScore()
     {
