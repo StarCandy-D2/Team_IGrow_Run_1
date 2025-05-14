@@ -29,22 +29,22 @@ public class Jelly : MonoBehaviour
         {
             hasEaten = true;
 
-            // jellyLevel 가져오기 (기본값 1 보장)
             int jellyLevel = ShopPlayer.Instance != null ? ShopPlayer.Instance.jellyLevel : 1;
-
-            // 점수 계산: baseScore × 레벨
             int finalScore = baseScore + (jellyLevel - 1) * scoreStep;
 
             GameManager.Instance.AddScore(finalScore);
 
-            // 애니메이션 재생
             if (animator != null)
             {
                 animator.SetBool("IsEat", true);
             }
-
-            // 일정 시간 후 오브젝트 제거
-            Destroy(this.gameObject, 0.2f);
+            StartCoroutine(DisableAfterDelay(0.2f));
         }
+    }
+
+    private IEnumerator DisableAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gameObject.SetActive(false);
     }
 }

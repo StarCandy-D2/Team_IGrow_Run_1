@@ -193,10 +193,10 @@ public class PrefebManager : MonoBehaviour
 
     void ResetJelly(List<GameObject> jelly, int iValue)
     {
-        for(int i = iValue+1; i < jelly.Count; i++)
+        for (int i = iValue + 1; i < jelly.Count; i++)
         {
             jelly[i].transform.localPosition = remote;
+            jelly[i].SetActive(true);
         }
-
     }
 }
