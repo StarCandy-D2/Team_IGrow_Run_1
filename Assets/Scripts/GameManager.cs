@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         }
 
         // 새로운 음악 재생
-        GetComponent<AudioSource>().Play();
+        //GetComponent<AudioSource>().Play();
     }
 
     public void GameOver()
