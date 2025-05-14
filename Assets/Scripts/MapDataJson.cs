@@ -29,9 +29,12 @@ public class MapDataJson : MonoBehaviour
         public Vector2[] JumpObsJellyVec { get; private set; }
         public Vector2[] DblObsJellyVec { get; private set; }
         public Vector2[] SlideObsJellyVec { get; private set; }
+
         public JellyStruct(Vector2[] jumpObsJellyVec, Vector2[] dblObsJellyVec, Vector2[] slideObsJellyVec)
         {
             JumpObsJellyVec = jumpObsJellyVec; DblObsJellyVec = dblObsJellyVec; SlideObsJellyVec= slideObsJellyVec;
+
+
         }
     }
 
@@ -167,7 +170,7 @@ public class MapDataJson : MonoBehaviour
 
     int GetRandomCode(int iNum)
     {
-        if(stageCode == 0)  //Ʃ�丮���� ���
+        if(stageCode == 0)  //Æ©Åä¸®¾óÀÇ °æ¿ì
         {
             iNum++;
             if(iNum == 2)

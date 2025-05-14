@@ -79,8 +79,11 @@ public class PrefebManager : MonoBehaviour
     }
     private void Update()
     {
+
         int blockTurn = num % 2;
         Transform block = blockTurn == 1 ? Block1 : Block2;
+
+
         lastBlockPosition = block.position;
     }
     public void SetBlock()
@@ -94,12 +97,14 @@ public class PrefebManager : MonoBehaviour
 
     void Set(int blockTurn)
     {
+
         List<GameObject> ground = blockTurn == 1 ? Block1GroundList : Block2GroundList;
         List<GameObject> Platform = blockTurn == 1 ? Block1PlatformList : Block2PlatformList;
         List<GameObject> Obstacle1 = blockTurn == 1 ? Block1JumpObstaclePrefebList : Block2JumpObstaclePrefebList;
         List<GameObject> Obstacle2 = blockTurn == 1 ? Block1DoubleJumpObstaclePrefebList : Block2DoubleJumpObstaclePrefebList;
         List<GameObject> Obstacle3 = blockTurn == 1 ? Block1SlideObstaclePrefebList : Block2SlideObstaclePrefebList;
         List<GameObject> jelly = blockTurn == 1 ? Block1JellyPrefebList : Block2JellyPrefebList;
+
 
         Vector2[] GroundVec = mapDataScript.ReturnGroundCode();
         Vector2[] PlatformVec = mapDataScript.ReturnPlatformCode();
@@ -148,6 +153,7 @@ public class PrefebManager : MonoBehaviour
         }
     }
 
+
     int SetJelly(Vector2[] ObstacleVec, Vector2[] JellyVec, List<GameObject> jelly, int iValue)
     {
         if (ObstacleVec != null)
@@ -180,5 +186,6 @@ public class PrefebManager : MonoBehaviour
         {
             jelly[i].transform.localPosition = remote;
         }
+
     }
 }
