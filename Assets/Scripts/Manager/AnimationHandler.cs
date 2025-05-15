@@ -37,24 +37,16 @@ public class AnimationHandler : MonoBehaviour
             animator.SetTrigger("Jump2");
         }
 
-        // 착지 여부
+        // 착지 여부 판단
         bool isGrounded = player.IsGrounded();
+        float yVelocity = player.GetComponent<Rigidbody2D>().velocity.y;
+
+        bool isFalling = player.VerticalSpeed < -0.1f && !isGrounded;
+
+        animator.SetBool("isFalling", isFalling);
         animator.SetBool("isGrounded", isGrounded);
 
-        // 하강 여부 감지
-        float yVelocity = player.GetComponent<Rigidbody2D>().velocity.y;
-        bool isFalling = yVelocity < 0 && !isGrounded;
-        animator.SetBool("isFalling", isFalling);
-
-        // 이전 프레임과 비교해서 착지 타이밍 판단
-        if (!wasGrounded && isGrounded)
-        {
-            // 애니메이터 파라미터 설정
-        }
-        
-        // 착지 감지
         wasGrounded = isGrounded;
-
 
         // 슬라이딩
         if (Input.GetKey(slideKey))
@@ -69,7 +61,10 @@ public class AnimationHandler : MonoBehaviour
         //죽음
         if (player.isDead)
         {
-            animator.SetTrigger("Die");
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Cookie_Die"))
+            {
+                animator.SetTrigger("Die");
+            }
         }
     }
 

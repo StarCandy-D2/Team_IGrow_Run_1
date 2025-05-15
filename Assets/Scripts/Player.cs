@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     private Vector2 slideSize = new Vector2(1f, 0.5f);
     private Vector2 slideOffset = new Vector2(0f, -0.5f);
 
+    public float VerticalSpeed => verticalSpeed;
     private float verticalSpeed = 0f;
     private float currentRunSpeed;
     public int stage = 0;
@@ -54,11 +55,8 @@ public class Player : MonoBehaviour
 
     public Slider hpSlider;
 
-
-
     public int coins = 0; // 플레이어 가지고 있는 코인 갯수
     
-
     public bool isDead = false; // 죽음 여부 확인
     public bool isGod = false; // 무적 여부 확인
     bool isFlap = false; // 점프 여부 확인

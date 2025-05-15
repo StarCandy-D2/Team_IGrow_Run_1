@@ -13,10 +13,16 @@ public class Jelly : MonoBehaviour
     [SerializeField] int scoreStep = 2;
 
     [SerializeField] private JellyLevelData jellyLevelData;
+
+    [SerializeField] private AudioClip eatSFX;
+    private AudioSource audioSource;
+
     private SpriteRenderer spriteRenderer;
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
+
         if (ShopPlayer.Instance != null && jellyLevelData != null)
         {
             int lvl = Mathf.Clamp(ShopPlayer.Instance.jellyLevel, 1, jellyLevelData.levelSprites.Count);
@@ -33,6 +39,11 @@ public class Jelly : MonoBehaviour
             int finalScore = baseScore + (jellyLevel - 1) * scoreStep;
 
             GameManager.Instance.AddScore(finalScore);
+
+            if (audioSource != null && eatSFX != null)
+            {
+                audioSource.PlayOneShot(eatSFX); // È¿°úÀ½
+            }
 
             if (animator != null)
             {
