@@ -32,7 +32,7 @@ public class MapDataJson : MonoBehaviour
 
         public JellyStruct(Vector2[] jumpObsJellyVec, Vector2[] dblObsJellyVec, Vector2[] slideObsJellyVec)
         {
-            JumpObsJellyVec = jumpObsJellyVec; DblObsJellyVec = dblObsJellyVec; SlideObsJellyVec= slideObsJellyVec;
+            JumpObsJellyVec = jumpObsJellyVec; DblObsJellyVec = dblObsJellyVec; SlideObsJellyVec = slideObsJellyVec;
 
 
         }
@@ -50,7 +50,8 @@ public class MapDataJson : MonoBehaviour
 
     public int mapCode = -1;
     public int stageCode = 0; // 순환 가능하게 변경
-    private const int MaxStageCount = 3; // JSON에서 총 4개 스테이지 (0,1,2)
+    int getStageCode = 0;
+    private const int StageCount = 2; // JSON에서 총 4개 스테이지 (0,1,2)
     private void Start()
     {
         string jsonString = Resources.Load("MapData").ToString();
@@ -62,14 +63,14 @@ public class MapDataJson : MonoBehaviour
     }
     public void GetCode()
     {
-        // 튜토리얼이 끝나면 stageCode를 순환시킴
-        if (!tutorialManager.isFirstRun)
+        if(tutorialManager.isFirstRun)
         {
-            stageCode = stageCode % MaxStageCount;
+            stageCode = Mathf.Clamp((getStageCode-1) / StageCount, 0, 3);
+            Debug.Log("Stage : " + stageCode);
         }
         else
         {
-            stageCode = 0; // 튜토리얼 중엔 고정
+            stageCode = 0;
         }
 
         mapCode = GetRandomCode(mapCode);
@@ -84,7 +85,7 @@ public class MapDataJson : MonoBehaviour
 
     public void AdvanceStage()
     {
-        stageCode = (stageCode + 1) % MaxStageCount;
+        getStageCode = getStageCode + 1;       
     }
     void GetGroundCode()
     {
